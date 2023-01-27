@@ -21,15 +21,10 @@ class Product extends Model
 
     public function seller(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'seller_id');
+        return $this->belongsTo(User::class, 'id');
     }
-    /**
-     * Scope a query to only include active users.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeCanShow($query): \Illuminate\Database\Eloquent\Builder
+
+    public function scopeCanShow($query)
     {
         return $query->where('status','=','open')
             ->where('deleted_at','=',null);

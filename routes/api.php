@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\BuyerController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\SellerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 /*
@@ -36,4 +39,16 @@ Route::group([
     Route::post('/products', [ProductController::class, 'store']);
     Route::post('/products/{product}', [ProductController::class, 'update']);
     Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+
+    Route::get('/cart',[CartController::class, 'showCart']);
+    Route::post('/cart',[CartController::class, 'addCart']);
+    Route::delete('/cart',[CartController::class, 'deleteCart']);
+
+    Route::get('/buyer/purchase',[BuyerController::class,'showOrder']);
+    Route::post('/buyer/buy',[BuyerController::class,'buyOrder']);
+    Route::post('/buyer/cancel',[BuyerController::class,'cancelOrder']);
+
+    Route::get('/seller/sold',[SellerController::class,'showOrder']);
+    Route::post('/seller/deliver',[SellerController::class,'deliver']);
+    Route::post('/seller/cancel',[SellerController::class,'cancelOrder']);
 });

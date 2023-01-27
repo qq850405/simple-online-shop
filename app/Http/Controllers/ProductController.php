@@ -92,12 +92,12 @@ class ProductController extends Controller
             return response()->json(['status' => 'The given data was invalid.']);
         }
 
-        if(Auth::id() == $product->author()->first()->id){
+        if(Auth::id() == $product->seller()->first()->id){
             $product->update([
-                'name' => ['required', 'string', 'max:20'],
-                'description' => ['required','string','max:255'],
-                'status' => ['required','string','max:10'],
-                'inventory' => ['required','integer','min:0'],
+                'name' => $data['name'],
+                'description' => $data['description'],
+                'status' => $data['status'],
+                'inventory' => $data['inventory'],
             ]);
             return response()->json(['status' => 'update success']);
         }else{
