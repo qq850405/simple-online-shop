@@ -16,18 +16,24 @@ class Product extends Model
         'description',
         'status',
         'inventory',
-        'seller_id'
+        'seller_id',
+        'price'
     ];
 
     public function seller(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id');
+        return $this->belongsTo(User::class, 'seller_id');
     }
 
     public function scopeCanShow($query)
     {
         return $query->where('status','=','open')
             ->where('deleted_at','=',null);
+    }
+
+    public function deductInventory($product_id,$quantity)
+    {
+        return $this->query()->find($product_id)->decrement('inventory',$quantity);
     }
 
 }
