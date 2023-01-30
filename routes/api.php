@@ -45,10 +45,12 @@ Route::group([
     Route::delete('/cart',[CartController::class, 'deleteCart']);
 
     Route::get('/buyer/purchase',[BuyerController::class,'showOrder']);
+    Route::get('/buyer/purchase/detail/{order}',[BuyerController::class,'showOrderDetail']);
     Route::post('/buyer/buy',[BuyerController::class,'buyOrder']);
     Route::post('/buyer/cancel',[BuyerController::class,'cancelOrder']);
 
     Route::get('/seller/sold',[SellerController::class,'showOrder']);
+    Route::get('/seller/sold/detail/{order}',[SellerController::class,'showOrderDetail']);
     Route::post('/seller/deliver',[SellerController::class,'deliver']);
     Route::post('/seller/cancel',[SellerController::class,'cancelOrder']);
 });

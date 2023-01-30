@@ -9,9 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
-    protected $fillable =[
+    protected $fillable = [
         'name',
         'description',
         'status',
@@ -27,13 +27,12 @@ class Product extends Model
 
     public function scopeCanShow($query)
     {
-        return $query->where('status','=','open')
-            ->where('deleted_at','=',null);
+        return $query->where('status', '=', 'open')
+            ->where('deleted_at', '=', null);
     }
 
-    public function deductInventory($product_id,$quantity)
+    public function deductInventory($product_id, $quantity)
     {
-        return $this->query()->find($product_id)->decrement('inventory',$quantity);
+        return $this->query()->find($product_id)->decrement('inventory', $quantity);
     }
-
 }

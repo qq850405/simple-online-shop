@@ -6,24 +6,22 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderProduct;
 use App\Models\Product;
-use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Validation\Rule;
-use Illuminate\Validation\ValidationException;
 
 class BuyerController extends Controller
 {
     public function showOrder()
     {
-        $orderDetail = new OrderProduct();
-        return $orderDetail->order()
-            ->where('buyer_id', Auth::id())
-            ->get();
+        $order = new Order();
+        return $order->getBuyerOrder();
     }
-
+    public function showOrderDetail(Order $order)
+    {
+        return $order->getBuyerOrderDetail();
+    }
     public function buyOrder(Request $request)
     {
         try {
@@ -80,12 +78,11 @@ class BuyerController extends Controller
             }
 
             DB::commit();
-            return response(['message' => 'ALL GOOD'], 200);
+            return response(['message' => 'Order created succeed.'], 200);
         } catch (Exception $e) {
             DB::rollBack();
             return response(['message' => $e], 500);
         }
-//        return $cart->getBuyerCart()->get();
     }
 
     public function cancelOrder()
