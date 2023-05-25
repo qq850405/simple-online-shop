@@ -13,6 +13,7 @@ class Product extends Model
 
     protected $fillable = [
         'name',
+        'category',
         'description',
         'status',
         'inventory',
@@ -35,4 +36,17 @@ class Product extends Model
     {
         return $this->query()->find($product_id)->decrement('inventory', $quantity);
     }
+
+    public function getProductCategory($seller_id){
+        return $this
+            ->query()
+            ->where('seller_id',$seller_id)
+            ->groupBy('category')
+            ->pluck('category');
+    }
+
+    public function getProduct(){
+        return $this->query()->get();
+    }
+
 }

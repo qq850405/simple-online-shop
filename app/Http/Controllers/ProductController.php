@@ -13,13 +13,20 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function index(User $user)
+    public function index()
     {
-        return $user->products()
-            ->latest()
-            ->paginate(20);
+            $products = new Product();
+            $category = $products->getProductCategory(1);
+            $menu = $products->getProduct();
+        return view('menu',compact('category','menu'));
+    }
+
+    public function shop(){
+        $products = new Product();
+        $menu = $products->getProduct();
+        return view('shop',compact('menu'));
     }
 
 

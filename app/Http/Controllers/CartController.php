@@ -16,13 +16,10 @@ class CartController extends Controller
     {
         $cart = Cart::query()
         ->where('buyer_id',Auth::id())
-        ->where('deleted_at',NULL);
-
-        if(!$cart->exists()){
-            return response()->json(['status' => 'No item in cart.']);
-        }else{
-            return $cart->get();
-        }
+        ->where('carts.deleted_at',NULL)
+        ->join('products','carts.product_id','=','products.id')
+        ->get();
+        return view('cart',compact('cart'));
     }
 
 
@@ -31,7 +28,7 @@ class CartController extends Controller
         try{
             $data = $request->validate([
                 'product_id' =>
-                    ['required','Integer',Rule::exists('products', 'id')->where('status','open')
+                    ['required','Integer',Rule::exists('products', 'id')->where('status','on')
                             ->where('deleted_at',null)],
                 'quantity' => ['required','Integer','min:1']
             ]);
@@ -56,7 +53,7 @@ class CartController extends Controller
                     'quantity' => $data['quantity']
                 ]);
         }
-        return response()->json(['status' => 'Add item in cart succeed.']);
+        return redirect()->route('cart.show');
     }
 
     public function deleteCart(Request $request)

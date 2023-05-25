@@ -44,7 +44,6 @@ class Cart extends Model
             ->where('buyer_id', Auth::id())
             ->where('seller_id', $seller_id)
             ->update(['carts.status' => $status]);
-
     }
 
 
