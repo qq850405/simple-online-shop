@@ -67,13 +67,6 @@
     <div class="header-home">
         <div class="header-container">
             <div class="fxb-row header-main-row">
-                <div class="header-left fxb-col fxb fxb-start-x fxb-center-y fxb-basis-50 fxb-basis-auto">
-                    <div class="header-logo">
-                        <a class="logo-anch" href="/">
-                            <img src="{{asset('images/logo.png')}}" alt="">
-                        </a>
-                    </div>
-                </div>
 
                 <div class="header-center fxb-col fxb fxb-center-x fxb-center-y fxb-basis-auto fxb-shrink-0 hidden-sm hidden-xs">
                     <nav class="navbar navbar-inverse">
@@ -229,27 +222,8 @@
             <li data-index="rs-3034" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                 <!-- MAIN IMAGE -->
-                <img src="{{asset('images/slide_01.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+                <img src="{{asset('images/main3.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 
-                <!-- LAYERS 1-->
-                <div class="tp-caption   tp-resizeme"
-                     id="slide-5-layer-1"
-                     data-x="center" data-hoffset=""
-                     data-y="center" data-voffset=""
-                     data-width="['none','none','none','none']"
-                     data-height="['none','none','none','none']"
-
-                     data-type="image"
-                     data-responsive_offset="on"
-
-                     data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                     data-textAlign="['inherit','inherit','inherit','inherit']"
-                     data-paddingtop="[0,0,0,0]"
-                     data-paddingright="[0,0,0,0]"
-                     data-paddingbottom="[0,0,0,0]"
-                     data-paddingleft="[0,0,0,0]"
-
-                     style="z-index: 6;"><img src="{{asset('images/slide_logo.png')}}" alt="" data-ww="537px" data-hh="537px" width="537" height="537" data-no-retina> </div>
 
                 <!-- LAYER NR. 2 -->
                 <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
@@ -295,16 +269,17 @@
             <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                 <!-- MAIN IMAGE -->
-                <img src="{{asset('images/slide_02.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
-                <!-- LAYERS 1 -->
-                <div class="tp-caption tp-resizeme"
-                     id="slide-5-layer-2"
-                     data-x="center" data-hoffset=""
-                     data-y="center" data-voffset=""
-                     data-width="['none','none','none','none']"
-                     data-height="['none','none','none','none']"
+                <img src="{{asset('images/main1.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 
-                     data-type="image"
+                <!-- LAYERS NR. 2 -->
+                <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
+                     id="slide-5-layer-4"
+                     data-x="954"
+                     data-y="400"
+                     data-width="['40']"
+                     data-height="['1']"
+
+                     data-type="shape"
                      data-responsive_offset="on"
 
                      data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
@@ -314,7 +289,34 @@
                      data-paddingbottom="[0,0,0,0]"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 6;"><img src="images/slide_logo.png" alt="" data-ww="537px" data-hh="537px" width="537" height="537" data-no-retina> </div>
+                     style="z-index: 8;background-color:rgba(255, 255, 255, 0.5);"> </div>
+
+                <!-- LAYER NR. 3 -->
+                <div class="tp-caption   tp-resizeme"
+                     id="slide-3034-layer-22"
+                     data-x="1053"
+                     data-y="300"
+                     data-width="['auto']"
+                     data-height="['auto']"
+
+                     data-type="text"
+                     data-responsive_offset="on"
+
+                     data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
+                     data-textAlign="['inherit','inherit','inherit','inherit']"
+                     data-paddingtop="[0,0,0,0]"
+                     data-paddingright="[0,0,0,0]"
+                     data-paddingbottom="[0,0,0,0]"
+                     data-paddingleft="[0,0,0,0]"
+
+                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">Apple pie a la creme </div>
+            </li>
+            <!-- SLIDE  -->
+            <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
+
+                <!-- MAIN IMAGE -->
+                <img src="{{asset('images/main2.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+                <!-- LAYERS 1 -->
 
                 <!-- LAYERS NR. 2 -->
                 <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"

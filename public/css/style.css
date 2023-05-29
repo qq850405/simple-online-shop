@@ -1270,7 +1270,7 @@ form textarea.form-control {
 /*==================================================================*/
 /*========== Menu Item Start ==========*/
 .menu-right-img {
-  background: url(/images/menu-bg-img.jpg) no-repeat;
+  background: url(/images/index2.jpg) no-repeat;
   background-size: cover;
   background-position: left center;
   position: absolute;
@@ -1651,7 +1651,7 @@ form textarea.form-control {
   height: 100%;
   overflow: hidden; }
   .reserv-image-block .reserv-image, .reserv-overlay .reserv-image, .reserv-image .reserv-image {
-    background-image: url(/images/rreservation-img.jpg);
+    background-image: url(/images/index4.jpg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -3031,7 +3031,7 @@ form textarea.form-control {
   display: none; }
 
 .reservation-pg-section.restaurant-menu .menu-right-img {
-  background: url("imageson-img.jpg") no-repeat; }
+  background: url("images/index2.jpg") no-repeat; }
 
 .reservation-form {
   margin: -145px 0 0 0;

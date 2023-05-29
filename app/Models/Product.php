@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -49,4 +50,15 @@ class Product extends Model
         return $this->query()->get();
     }
 
+
+    public function getProductByPeriod(){
+//        $start = Carbon::now()->startOfDay()->addHours(10);
+//        $end = Carbon::now()->startOfDay()->addHours(14);
+        return $this->query()
+            ->where('status','on')
+            ->where('deleted_at',null)
+            ->where('online_ordering','on')
+//            ->whereBetween('period', [$start, $end])
+            ->get();
+    }
 }

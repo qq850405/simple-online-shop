@@ -16,12 +16,7 @@
                     <div class="min-height-550">
                         <div class="multilayers-item margin-top-80 position-relative">
                             <div class="image-item">
-                                <img class="img-responsive" src="images/restaurant-img-1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="multilayers-item padding-left-250">
-                            <div class="image-item">
-                                <img class="img-responsive" src="images/restaurant-img-2.jpg" alt="">
+                                <img class="img-responsive" src="images/index1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -31,11 +26,10 @@
                 <div class="welcome-right padding-left-125">
                     <div class="section-title">
                         <h2>Welcome at</h2>
-                        <h3>danny’s restaurant</h3>
+                        <h3>Sampannee!</h3>
                     </div>
-                    <h6 class="small-headline">“Action ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate”.</h6>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
-                    <a href="#dannys" class="btn btn-primary scroll">about us</a>
+                    <h6 class="small-headline">“Experience authentic Thai cuisine in the heart of Dupont Circle, D.C. at our restaurant, where we serve visually stunning dishes that tantalize the taste buds. ”.</h6>
+                    <p>At Sampannee, we take great pride in our Thai heritage. Our culinary journey began in the royal Thai palace, where we honed our skills to serve the esteemed royal family. Today, we are excited to bring the rich flavors of Thai cuisine to the United States. Indulge in our delectable Thai dishes and savor the exotic drinks that will leave a lasting impression on your palate. Join us as we embark on this culinary adventure together!</p>
                 </div>
             </div>
         </div>
@@ -55,10 +49,10 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-6 col-md-6">
-                                <p class="gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
+                                <p class="gray">We are delighted to offer you the true essence of Thai cuisine, served with a touch of modern elegance. At our restaurant, you'll find a harmonious blend of authentic flavors and contemporary decor, creating a unique dining experience. </p>
                             </div>
                             <div class="col-sm-6 col-md-6">
-                                <p class="gray">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor</p>
+                                <p class="gray">Whether you're seeking a hearty brunch, happy hour delights, or an extensive dine-in menu, we have you covered. And if you prefer the comfort of your own home, we provide convenient online ordering and delivery services. Don't let your cravings for Thai food go unsatisfied!</p>
                             </div>
                         </div>
                         <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
@@ -80,12 +74,7 @@
                     <div class="min-height-550">
                         <div class="multilayers-item margin-minus-left-120 position-relative">
                             <div class="image-item">
-                                <img class="img-responsive" src="images/specialties-img1.jpg" alt="">
-                            </div>
-                        </div>
-                        <div class="multilayers-item padding-top-275 padding-left-80 z-index">
-                            <div class="image-item">
-                                <img class="img-responsive" src="images/specialties-img2.jpg" alt="">
+                                <img class="img-responsive" src="images/index3.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -94,15 +83,15 @@
             <div class="col-sm-12 col-md-6">
                 <div class="specialties-right padding-left-125 padding-top-65">
                     <div class="section-title">
-                        <h2>Chinese</h2>
-                        <h3>specialties</h3>
+                        <h2>Drink</h2>
+                        <h3>with us</h3>
                     </div>
                     <div class="row">
                         <div class="col-sm-6 col-md-6">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
+                            <p>Indulge in a delightful selection of beverages at Sampannee! Our extensive drink menu is designed to complement your dining experience perfectly. </p>
                         </div>
                         <div class="col-sm-6 col-md-6">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+                            <p>Whether you're in the mood for a classic favorite, a special creation unique to Sampannee, or a refreshing mocktail, we have something to satisfy every palate.</p>
                         </div>
                     </div>
                     <a href="menu–stretched.html" class="btn btn-primary">view all</a>
@@ -113,23 +102,6 @@
 </div>
 <!-- Specialties Section End -->
 
-<!-- Todays Specialties Start -->
-<div class="todays-specialties">
-    <div class="parallax-window" data-parallax="scroll" data-image-src="images/specialties-parra-img.jpg"></div>
-    <div class="overlay"></div>
-    <div class="specialties-detail">
-        <div class="section-title">
-            <h2>La creme de la creme</h2>
-            <h3 class="white">today’s specialty</h3>
-        </div>
-        <div class="specialties-over-detail">
-            <p>Oven Roasted duck with special sousage</p>
-            <span class="price">$25.00</span>
-            <a href="menu–stretched.html" class="btn read-more">read more</a>
-        </div>
-    </div>
-</div>
-<!-- Todays Specialties End -->
 
 <!-- Todays Specialties Start -->
 
@@ -269,45 +241,6 @@
 </div>
 <!-- Menu List End -->
 
-<!-- Testimonial Start -->
-<div class="testimonial padding-top-120 padding-bottom-135 clearfix">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-8 col-centered">
-                <div class="testimonial-slider">
-                    <div>
-                        <div class="section-title">
-                            <h2>Clients</h2>
-                            <h3>testimonials</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div class="text-center testi-icon">“</div>
-                        <h4>james de franco</h4>
-                    </div>
-                    <div>
-                        <div class="section-title">
-                            <h2>Clients</h2>
-                            <h3>testimonials</h3>
-                        </div>
-                        <p>"The menu, ambience and special attention given by your staff to the guests, was as always of the highest standard. We continue to receive compliments by many of those who were present"</p>
-                        <div class="text-center testi-icon">“</div>
-                        <h4>Richard Nauz</h4>
-                    </div>
-                    <div>
-                        <div class="section-title">
-                            <h2>Clients</h2>
-                            <h3>testimonials</h3>
-                        </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                        <div class="text-center testi-icon">“</div>
-                        <h4>james de franco</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Testimonical End -->
 
 <!-- Reservations Start -->
 <div class="reservation-map clearfix">
@@ -318,17 +251,16 @@
                     <div class="reserv-image"></div>
                     <div class="reserv-overlay"></div>
                 </div>
-                <div class="reservation-detail flx-align-self">
-                    <h3 class="white">reservations</h3>
-                    <p class="white">49 Featherstone Street LONDON EC1Y 8SY UNITED KINGDOM <br/>+4 1800 555 1234 <br/><a class="white" href="#">bookatable@restaurant.com</a></p>
-                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>
-                </div>
+
             </div>
         </div>
         <div class="col-sm-12 col-md-6">
-            <div class="map-block">
-                <div class="map">
-                    <div id="map"></div>
+            <div class="reservation-block padding-right-155 padding-left-155 display-flex vertical-center">
+                <div class="reservation-detail flx-align-self">
+                    <h3 class="black">reservations</h3>
+                    <p class="black">Planning a memorable celebration? Look no further! Our restaurant offers the perfect setting to commemorate your joyous occasion. Reserve your table today, and let us create an extraordinary dining experience filled with delectable dishes and warm hospitality.
+                        <a class="black" href="#">bookatable@restaurant.com</a></p>
+                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>
                 </div>
             </div>
         </div>
@@ -336,35 +268,6 @@
 </div>
 <!-- Reservations End -->
 
-<!-- Newsletter Start -->
-<div class="newsletter dark-bg-color pad-top-bottom clearfix">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-12 col-md-7 col-centered">
-                <div class="section-title">
-                    <div class="discount">
-                        <h5>15% <br>OFF</h5>
-                    </div>
-                    <h2>Subscribe to our</h2>
-                    <h3>newsletter</h3>
-                </div>
-
-                <h5>Subscribe to our newsletter and receive 15% discount from your order.</h5>
-
-                <form action="//YOUR_USERNAME.DATASERVER.list-manage.com/subscribe/post?u=YOUR_API_KEY&id=LIST_ID" method="post" name="mc-embedded-subscribe-form" novalidate class="mail-box clearfix">
-                    <div class="input-group stylish-input-group">
-                        <input type="text" class="form-control"  placeholder="Your@mail.com" >
-                        <div class="btn-default">
-                            <button type="submit">subscribe</button>
-                        </div>
-                    </div>
-                    <div class="dn__newsletter-message"></div>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Newsletter End -->
 
 <!-- Footer Start -->
 <footer class="footer padding-top-120 padding-bottom-100 clearfix">
@@ -373,12 +276,6 @@
         <div class="f-top clearfix">
             <div class="row">
                 <div class="col-sm-12 col-md-3 col-lg-3">
-                    <div class="head-chef">
-                        <p>Chef Taylor Bonnyman, working in
-                            collaboration with Head Chef
-                            Marguerite Keogh, offer elegant &
-                            playful modern British cooking.</p>
-                    </div>
                 </div>
 
                 <div class="col-sm-12 col-md-2 col-lg-1">
@@ -409,22 +306,7 @@
                     </div>
                 </div>
 
-                <div class="col-sm-12 col-md-3 col-lg-4">
-                    <div class="f-address-contact">
-                        <!-- <a href="tel:+4 1800 555 1234" class="telephone">+4 1800 555 1234</a>
-                        <a href="mailto:bookatable@restaurant.com" class="mail">bookatable@restaurant.com</a> -->
-                        <p>+4 1800 555 1234</p>
-                        <span>bookatable@restaurant.com</span>
 
-                        <div class="f-address">
-                            <ul>
-                                <li>49 Featherstone Street</li>
-                                <li>LONDON</li>
-                                <li>EC1Y 8SY</li>
-                                <li>UNITED KINGDOM</li>
-                            </ul>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -432,12 +314,8 @@
 
         <!-- Footer Bottom Start -->
         <div class="f-bottom clearfix">
-            <p>This Demo is also part of <a href="https://kallyas.net/" title="Kallyas WordPress Theme">Kallyas WordPress Theme</a>. All rights reserved.</p>
-
-            <ul>
-                <li>copyright © 2016 <span>Kallyas.net</span></li>
-                <li><a href="hogash.com">Hogash.com</a></li>
-            </ul>
+            <p>Supported by:
+                Unite Innovatech | sale@uniteinnovatech.com | 571-435-7647 All rights reserved.</p>
         </div>
         <!-- Footer Bottom End -->
     </div>
