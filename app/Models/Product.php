@@ -52,8 +52,11 @@ class Product extends Model
 
 
     public function getProductByPeriod(){
-//        $start = Carbon::now()->startOfDay()->addHours(10);
-//        $end = Carbon::now()->startOfDay()->addHours(14);
+        $start = Carbon::now()->startOfDay()->addHours(10);
+        $end = Carbon::now()->startOfDay()->addHours(14);
+
+        // now>10 and now<14
+
         return $this->query()
             ->where('status','on')
             ->where('deleted_at',null)

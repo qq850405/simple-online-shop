@@ -61,12 +61,34 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <style>
+        .header-logo {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .header-logo img {
+            width: 350px; /* 调整为您想要的大小 */
+            height: auto; /* 根据宽度等比例缩放高度 */
+        }
+    </style>
 </head>
 <!-- Header Start -->
+
 <header class="header clearfix">
     <div class="header-home">
         <div class="header-container">
             <div class="fxb-row header-main-row">
+                <div class="header-left fxb-col fxb fxb-start-x fxb-center-y fxb-basis-50 fxb-basis-auto">
+                    <div class="header-logo"  >
+                        <a class="logo-anch" href="/">
+                            <img src="images/logo.png" alt="">
+                        </a>
+                    </div>
+                </div>
+
 
                 <div class="header-center fxb-col fxb fxb-center-x fxb-center-y fxb-basis-auto fxb-shrink-0 hidden-sm hidden-xs">
                     <nav class="navbar navbar-inverse">
@@ -222,7 +244,7 @@
             <li data-index="rs-3034" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                 <!-- MAIN IMAGE -->
-                <img src="{{asset('images/main3.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+                <img src="{{asset('images/main3.png')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 
 
                 <!-- LAYER NR. 2 -->
@@ -269,7 +291,7 @@
             <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                 <!-- MAIN IMAGE -->
-                <img src="{{asset('images/main1.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+                <img src="{{asset('images/main1.png')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
 
                 <!-- LAYERS NR. 2 -->
                 <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme"
@@ -315,7 +337,7 @@
             <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
 
                 <!-- MAIN IMAGE -->
-                <img src="{{asset('images/main2.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
+                <img src="{{asset('images/main2.png')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg" data-no-retina>
                 <!-- LAYERS 1 -->
 
                 <!-- LAYERS NR. 2 -->

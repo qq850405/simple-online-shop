@@ -2,7 +2,7 @@
 
 <!-- Banner Start -->
 <div class="banner">
-    <img class="OF-cover img-responsive" src="images/menu-list-banner.jpg" alt="">
+    <img class="OF-cover img-responsive" src="images/Shop.png" alt="">
     <div class="banner-overlay"></div>
     <div class="banner-title">
         <h5>restaurant</h5>
@@ -42,11 +42,16 @@
 {{--                </div>--}}
             </div>
         </header>
+        <div class="col-sm-12 col-md-12">
+            <div class="menu-list-title">
+                <h2>RECOMMENDATION</h2>
+            </div>
+        </div>
         <div class="menu-list">
             <div class="menu-list-right">
                 <ul class="products-list">
             @foreach($menu as $m)
-
+                @if($m->recommendation == 1)
                         <li class="products-block">
                             <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
                                 <img class="img-responsive" src="images/product-img1.jpg" alt="">
@@ -59,9 +64,38 @@
                                 <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="btn cart-btn">Add to cart</a>
                             </div>
                         </li>
+                @endif
             @endforeach
                 </ul>
             </div>
+
+
+                <div class="col-sm-12 col-md-12">
+                    <div class="menu-list-title">
+                        <h2>MENU</h2>
+                    </div>
+                </div>
+                @foreach($menu as $m)
+                    @if($m->recommendation == 0)
+                        <div class="col-sm-12 col-md-6">
+                            <ul>
+                                <li>
+                                    <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
+                                    <h4 class="list-item-title">{{$m->name}}</h4>
+                                    <div class="price-list-dotted-separator"></div>
+                                    <div class="list-item-price">${{$m->price}}</div>
+                                    <div class="price-item-desc">
+                                        <p>{{$m->description}}</p>
+                                    </div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                   @endif
+                @endforeach
+                <div class="col-sm-12 col-md-12">
+                    <div class="height-of-menu-list"></div>
+                </div>
         </div>
     </div>
 </div>

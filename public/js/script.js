@@ -45,7 +45,7 @@
 			var fw = this;
 			setTimeout(function(){
 				fw._body.addClass('loaded');
-			}, 3000);	
+			}, 3000);
 		},
 		enableShopMainSlider: function(){
 			this._shopMainSlider.slick({
@@ -216,7 +216,7 @@
 		},
 		enableStickyHeader: function(){
 			var fw = this;
-			this._window.scroll(function() {    
+			this._window.scroll(function() {
 				var scroll = fw._window.scrollTop();
 
 				if (scroll >= 300) {
@@ -236,7 +236,7 @@
 			this._mainNav.navAccordion({
 				expandButtonText: '<i class="fa fa-plus"></i>',
 				collapseButtonText: '<i class="fa fa-minus"></i>'
-			}, 
+			},
 			function(){
 				//console.log('Callback')
 			});
@@ -268,8 +268,8 @@
 			var picker = $input.pickatime('picker');
 
 			var $messageTextarea = $(".message-add textarea");
-					
-			//Open Textarea 
+
+			//Open Textarea
 			$("a.add-message").click(function(){
 				$messageTextarea.toggle();
 				event.preventDefault();
@@ -301,7 +301,7 @@
 						}
 						,
 						arrows: {
-							style:"uranus",
+							style:"hesperiden",
 							enable:true,
 							hide_onmobile:false,
 							hide_onleave:false,
@@ -372,7 +372,7 @@
 		enableMailchimp: function(){
 			this._mailchimpForm.on('submit', function(event){
 
-				// Prevent the default 
+				// Prevent the default
 				event.preventDefault();
 
 				var responseContainer = $(this).find('.dn__newsletter-message');
@@ -412,7 +412,7 @@
 				});
 			});
 		},
-		initContactForm: function() { 
+		initContactForm: function() {
 			var contactForm = $('.dn__contact-form');
             if( typeof(contactForm) === 'undefined' ){
                 return;
@@ -489,7 +489,7 @@
 
 	dannys.init();
 
-	
+
 })( jQuery );
 
 

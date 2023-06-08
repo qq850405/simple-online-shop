@@ -36,8 +36,7 @@ Route::get('/products/product_id={product}', [ProductController::class, 'show'])
 
 
 Route::group([
-//    'middleware' => 'auth:api',
-['auth']
+    'middleware' => 'auth',
 ], function () {
     Route::get('/logout', [UserController::class, 'logout']);
 
