@@ -66,6 +66,7 @@
 <!-- Restaurant - Menu Section End -->
 
 <!-- Specialties Section Start -->
+
 <div class="specialties-section section-bg-white padding-top-120 padding-bottom-220 section-block">
     <div class="container">
         <div class="row">
