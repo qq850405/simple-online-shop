@@ -115,13 +115,13 @@
                                 <li class="dropdown">
                                     <a href="/shop" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Shop<span class="caret"></span></a>
                                 </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="contact-simple.html">Contact Simple</a></li>
-                                        <li><a href="contact-google-map.html">Contact Google Map</a></li>
-                                    </ul>
-                                </li>
+{{--                                <li class="dropdown">--}}
+{{--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact<span class="caret"></span></a>--}}
+{{--                                    <ul class="dropdown-menu">--}}
+{{--                                        <li><a href="contact-simple.html">Contact Simple</a></li>--}}
+{{--                                        <li><a href="contact-google-map.html">Contact Google Map</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
                             </ul>
                         </div>
                     </nav>
@@ -143,7 +143,7 @@
 
                             <div class="navigation-detail">
                                 <ul>
-                                    <li><a>Menu</a>
+                                    <li><a href="/menu">Menu</a>
                                         <ul>
                                             <li><a href="menu–stretched.html">Menu - Stretched</a></li>
                                             <li><a href="menu–boxed.html">Menu - Boxed</a></li>
@@ -156,18 +156,15 @@
 {{--                                            <li><a href="blog-single-shop-item.html">Blog Single Shop Item</a></li>--}}
 {{--                                        </ul>--}}
 {{--                                    </li>--}}
-                                    <li><a>Shop</a>
-                                        <ul>
-                                            <li><a href="full-shop-width.html">Shop Full Width</a></li>
-                                        </ul>
+                                    <li><a  href="/shop">Shop</a>
                                     </li>
-                                    <li><a href="error.html">Error</a></li>
-                                    <li><a>Contact</a>
-                                        <ul>
-                                            <li><a href="contact-simple.html">Contact - Simple</a></li>
-                                            <li><a href="contact-google-map.html">Contact - With Google Map</a></li>
-                                        </ul>
-                                    </li>
+{{--                                    <li><a href="error.html">Error</a></li>--}}
+{{--                                    <li><a>Contact</a>--}}
+{{--                                        <ul>--}}
+{{--                                            <li><a href="contact-simple.html">Contact - Simple</a></li>--}}
+{{--                                            <li><a href="contact-google-map.html">Contact - With Google Map</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
                                 </ul>
                             </div>
                         </div>

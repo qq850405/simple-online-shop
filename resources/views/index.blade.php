@@ -278,11 +278,11 @@
                     <div class="f-nav">
                         <ul>
                             <li><a href="/">Home</a></li>
-                            <li><a href="menu–stretched.html">menu</a></li>
-                            <li><a href="reservation-form-and-content.html">Reservation</a></li>
-                            <li><a href="blog-main.html">blog</a></li>
-                            <li><a href="full-shop-width.html">Shop</a></li>
-                            <li><a href="contact-google-map.html">Contact</a></li>
+                            <li><a href="/menu">menu</a></li>
+{{--                            <li><a href="reservation-form-and-content.html">Reservation</a></li>--}}
+{{--                            <li><a href="blog-main.html">blog</a></li>--}}
+                            <li><a href="/shop">Shop</a></li>
+{{--                            <li><a href="contact-google-map.html">Contact</a></li>--}}
                         </ul>
                     </div>
                 </div>
