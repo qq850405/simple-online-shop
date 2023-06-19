@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,7 +12,11 @@ class indexController extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
     public function index(){
-        return view('index');
+        $products = new Product();
+        $category = $products->getProductCategory(1);
+
+
+        return view('index', compact('category'));
     }
     public function getCSRFToken(): \Illuminate\Http\JsonResponse
     {

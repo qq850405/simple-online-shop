@@ -117,14 +117,9 @@
                         <h2>menu</h2>
                     </div>
                     <ul>
-                        <li class="active"><a href="#menulist" class="scroll">all</a></li>
-                        <li><a href="#menulist" class="scroll">starters</a></li>
-                        <li><a href="#menulist" class="scroll">main</a></li>
-                        <li><a href="#menulist" class="scroll">DESSERT</a></li>
-                        <li><a href="#menulist" class="scroll">drinks</a></li>
-                        <li><a href="#menulist" class="scroll">daily menu</a></li>
-                        <li><a href="#menulist" class="scroll">chef’s specialty</a></li>
-                        <li><a href="#menulist" class="scroll">offers</a></li>
+                        @foreach($category as $c)
+                        <li class="active"><a href="#menulist" class="scroll">{{$c}}</a></li>
+                        @endforeach
                     </ul>
                 </div>
             </div>
@@ -294,7 +289,7 @@
 
                 <div class="col-sm-12 col-md-4 col-lg-4">
                     <div class="f-social-follower">
-                        <a class="btn btn-default" href="reservation-form.html" role="button">online reservation</a>
+{{--                        <a class="btn btn-default" href="reservation-form.html" role="button">online reservation</a>--}}
                         <div class="f-follower">
                             <h6>follow</h6>
                             <ul>
