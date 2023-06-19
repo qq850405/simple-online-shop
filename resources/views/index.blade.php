@@ -55,7 +55,7 @@
                                 <p class="gray">Whether you're seeking a hearty brunch, happy hour delights, or an extensive dine-in menu, we have you covered. And if you prefer the comfort of your own home, we provide convenient online ordering and delivery services. Don't let your cravings for Thai food go unsatisfied!</p>
                             </div>
                         </div>
-                        <a href="menu–stretched.html" class="btn btn-secondary">what’s on the menu</a>
+                        <a href="/menu" class="btn btn-secondary">what’s on the menu</a>
                     </div>
                 </div>
             </div>
