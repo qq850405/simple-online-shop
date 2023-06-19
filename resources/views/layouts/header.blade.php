@@ -105,13 +105,13 @@
                                 <li>
                                     <a href="/menu" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">menu<span class="caret"></span></a>
                                 </li>
-                                <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>
-                                    <ul class="dropdown-menu">
-                                        <li><a href="blog-main.html">Blog Main</a></li>
-                                        <li><a href="blog-single-page.html">Blog Single Page</a></li>
-                                    </ul>
-                                </li>
+{{--                                <li class="dropdown">--}}
+{{--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>--}}
+{{--                                    <ul class="dropdown-menu">--}}
+{{--                                        <li><a href="blog-main.html">Blog Main</a></li>--}}
+{{--                                        <li><a href="blog-single-page.html">Blog Single Page</a></li>--}}
+{{--                                    </ul>--}}
+{{--                                </li>--}}
                                 <li class="dropdown">
                                     <a href="/shop" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Shop<span class="caret"></span></a>
                                 </li>
