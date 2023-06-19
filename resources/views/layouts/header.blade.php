@@ -149,13 +149,13 @@
                                             <li><a href="menu–boxed.html">Menu - Boxed</a></li>
                                         </ul>
                                     </li>
-                                    <li><a>Blog</a>
-                                        <ul>
-                                            <li><a href="blog-main.html">Blog Main</a></li>
-                                            <li><a href="blog-single-page.html">Blog Single Page</a></li>
-                                            <li><a href="blog-single-shop-item.html">Blog Single Shop Item</a></li>
-                                        </ul>
-                                    </li>
+{{--                                    <li><a>Blog</a>--}}
+{{--                                        <ul>--}}
+{{--                                            <li><a href="blog-main.html">Blog Main</a></li>--}}
+{{--                                            <li><a href="blog-single-page.html">Blog Single Page</a></li>--}}
+{{--                                            <li><a href="blog-single-shop-item.html">Blog Single Shop Item</a></li>--}}
+{{--                                        </ul>--}}
+{{--                                    </li>--}}
                                     <li><a>Shop</a>
                                         <ul>
                                             <li><a href="full-shop-width.html">Shop Full Width</a></li>
