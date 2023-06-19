@@ -94,7 +94,7 @@
                             <p>Whether you're in the mood for a classic favorite, a special creation unique to Sampannee, or a refreshing mocktail, we have something to satisfy every palate.</p>
                         </div>
                     </div>
-                    <a href="menu–stretched.html" class="btn btn-primary">view all</a>
+{{--                    <a href="menu–stretched.html" class="btn btn-primary">view all</a>--}}
                 </div>
             </div>
         </div>
@@ -259,8 +259,8 @@
                 <div class="reservation-detail flx-align-self">
                     <h3 class="black">reservations</h3>
                     <p class="black">Planning a memorable celebration? Look no further! Our restaurant offers the perfect setting to commemorate your joyous occasion. Reserve your table today, and let us create an extraordinary dining experience filled with delectable dishes and warm hospitality.
-                        <a class="black" href="#">bookatable@restaurant.com</a></p>
-                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>
+                        <a class="black" href="#"></a></p>
+{{--                    <a href="reservation-form.html" class="btn btn-secondary">ONLINE</a>--}}
                 </div>
             </div>
         </div>
