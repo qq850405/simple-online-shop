@@ -111,7 +111,7 @@
                     </div>
                     <ul>
                         @foreach($category as $c)
-                        <li class="active"><a href="/shop" class="scroll">{{$c}}</a></li>
+                        <li class="active"><a href="/menu" class="scroll">{{$c}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -125,16 +125,13 @@
                                 <?php $count++ ?>
                             @if($count < 6)
                         <li class="products-block">
-                            <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
-                                <img class="img-responsive" src="images/product-img1.jpg" alt="">
+                            <a href="#" class="product-link">
+                                <img class="img-responsive" src="{{$m->photo}}" alt="">
                                 <div class="info-wrapper">
                                     <h2 class="product-title">{{$m->name}}</h2>
                                     <span class="price">${{$m->price}}</span>
                                 </div>
                             </a>
-                            <div class="btn-add-to-cart">
-                                <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="btn cart-btn">Add to cart</a>
-                            </div>
                         </li>
                                 @endif
                             @endif
@@ -143,7 +140,7 @@
                         <li class="products-block fancy-pag">
                             <div class="fancy-inner-block">
                                 <div class="pag-arrows">
-                                    <a href="/shop">next <span class="arrow-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span><span class="arrow-left"><i class="fa fa-angle-left" aria-hidden="true"></i></span></a>
+                                    <a href="/menu">next <span class="arrow-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span><span class="arrow-left"><i class="fa fa-angle-left" aria-hidden="true"></i></span></a>
                                 </div>
                             </div>
                         </li>
