@@ -64,7 +64,6 @@ class CartController extends Controller
                     ['required', 'Integer', Rule::exists('carts', 'product_id')
                         ->where('deleted_at', null)
                         ->where('buyer_id', Auth::id())],
-                'quantity' => ['required', 'Integer', 'min:1']
             ]);
 
         }catch (ValidationException $e){
@@ -73,18 +72,8 @@ class CartController extends Controller
         $cart = Cart::query()
             ->where('buyer_id',Auth::id())
             ->where('product_id',$data['product_id']);
+        $cart->delete();
 
-        $quantity = $cart->first()->quantity;
-
-        if($quantity < $data['quantity']){
-            return response()->json(['status' => '\Delete item from cart failed.']);
-        }elseif($quantity > $data['quantity']){
-            $cart->decrement('quantity',$data['quantity']);
-            return response()->json(['status' => 'Update item from cart succeed.']);
-        }else{
-            $cart->update(['status'=> 'delete']);
-            $cart->delete();
-            return response()->json(['status' => '\Delete item from cart succeed.']);
-        }
+        return redirect()->route('cart.show');
     }
 }

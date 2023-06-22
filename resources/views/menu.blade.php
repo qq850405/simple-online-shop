@@ -1,13 +1,13 @@
-@include('layouts.header');
+@include('layouts.header')
 
 <!-- Banner Start -->
 <div class="banner">
-    <img class="OF-cover img-responsive" src="images/menu-list-banner.jpg" alt="">
+    <img class="OF-cover img-responsive" src="images/Shop.png" alt="">
     <div class="banner-overlay"></div>
     <div class="banner-title">
         <h5>restaurant</h5>
         <h1>Menu</h1>
-        <p>juicy flavours</p>
+        <p></p>
     </div>
 </div>
 <!-- Banner End -->
@@ -45,3 +45,4 @@
     </div>
 </div>
 <!-- Content-Of-Blog-Detail End -->
+@include('layouts.footer')

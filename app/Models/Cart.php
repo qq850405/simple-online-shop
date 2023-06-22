@@ -19,12 +19,13 @@ class Cart extends Model
         'status',
     ];
 
-    public function getBuyerCart($seller_id)
+    public function getBuyerCart()
     {
         return $this->query()
             ->join('products', 'products.id', '=', 'product_id')
             ->where('buyer_id', Auth::id())
-            ->where('seller_id', $seller_id);
+            ->where('carts.deleted_at', '=', null)
+            ->get();
     }
 
     public function getCartTotal($seller_id)
@@ -46,5 +47,13 @@ class Cart extends Model
             ->update(['carts.status' => $status]);
     }
 
+
+    public function updateCartQuantity($product_id, $quantity)
+    {
+        return $this->query()
+            ->where('buyer_id', Auth::id())
+            ->where('product_id', $product_id)
+            ->update(['quantity' => $quantity]);
+    }
 
 }

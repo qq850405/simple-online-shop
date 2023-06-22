@@ -1,4 +1,4 @@
-@include('layouts.header');
+@include('layouts.header')
 
 <!-- Banner Start -->
 <div class="banner">
@@ -6,8 +6,8 @@
     <div class="banner-overlay"></div>
     <div class="banner-title">
         <h5>restaurant</h5>
-        <h1>Menu</h1>
-        <p>juicy flavours</p>
+        <h1>Online Ordering</h1>
+        <p></p>
     </div>
 </div>
 <!-- Breadcrumb Start -->
@@ -15,7 +15,7 @@
     <div class="container">
         <ol class="breadcrumb">
             <li><a href="#">Home</a></li>
-            <li class="active">PRODUCTS</li>
+            <li class="active">Online Ordering</li>
         </ol>
     </div>
 </div>
@@ -25,7 +25,7 @@
 <div class="content inner-pg full-shop-width clearfix">
     <div class="container">
         <header class="full-shop-header">
-            <h2>Shop</h2>
+            <h2>Online Ordering</h2>
             <div class="filter-section">
                 <p>SHOWING All RESULTS</p>
 {{--                <div class="right-filter">--}}
@@ -100,7 +100,7 @@
     </div>
 </div>
 
-
+@include('layouts.footer')
 <!-- Content Page Start -->
 
 <!-- Content Page End -->

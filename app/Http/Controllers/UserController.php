@@ -76,17 +76,9 @@ class UserController extends Controller
 
     }
 
-    public function logout(Request $request): JsonResponse
+    public function logout(Request $request): \Illuminate\Http\RedirectResponse
     {
-
-        $authToken = Auth::user()->getAuthToken()->id;
-//        $request->user()->token()->revoke();
-//         $accessToken = Auth::user()->token();
-        DB::table('oauth_access_tokens')
-            ->where('id', $authToken)
-            ->update([
-                'revoked' => true
-            ]);
-        return response()->json(['status' => 'success']);
+        Auth::logout();
+        return redirect()->route('index');
     }
 }

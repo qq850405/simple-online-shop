@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="zxx">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Restaurant</title>
-</head>
+
 @include('layouts.header')
 <!-- Restaurant Section Start -->
 <div class="restaurant-block padding-top-120 padding-bottom-120 section-bg-white section-block">
@@ -118,7 +111,7 @@
                     </div>
                     <ul>
                         @foreach($category as $c)
-                        <li class="active"><a href="#menulist" class="scroll">{{$c}}</a></li>
+                        <li class="active"><a href="/shop" class="scroll">{{$c}}</a></li>
                         @endforeach
                     </ul>
                 </div>
@@ -126,106 +119,31 @@
             <div class="col-sm-12 col-md-9">
                 <div class="menu-list-right">
                     <ul class="products-list">
+                        <?php $count = 0; ?>
+                        @foreach($menu as $m)
+                            @if($m->recommendation == 1)
+                                <?php $count++ ?>
+                            @if($count < 6)
                         <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
+                            <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
                                 <img class="img-responsive" src="images/product-img1.jpg" alt="">
                                 <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
+                                    <h2 class="product-title">{{$m->name}}</h2>
+                                    <span class="price">${{$m->price}}</span>
                                 </div>
                             </a>
                             <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
+                                <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="btn cart-btn">Add to cart</a>
                             </div>
                         </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img2.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img3.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img4.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img5.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img6.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img7.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
-                        <li class="products-block">
-                            <a href="single-shop-item.html" class="product-link">
-                                <img class="img-responsive" src="images/product-img8.jpg" alt="">
-                                <div class="info-wrapper">
-                                    <h2 class="product-title">Oven Roasted duck with special sousage</h2>
-                                    <span class="price">$25.00</span>
-                                </div>
-                            </a>
-                            <div class="btn-add-to-cart">
-                                <a href="cart-page.html" class="btn cart-btn">Add to cart</a>
-                            </div>
-                        </li>
+                                @endif
+                            @endif
+                        @endforeach
+
                         <li class="products-block fancy-pag">
                             <div class="fancy-inner-block">
                                 <div class="pag-arrows">
-                                    <a href="full-shop-width.html">next <span class="arrow-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span><span class="arrow-left"><i class="fa fa-angle-left" aria-hidden="true"></i></span></a>
+                                    <a href="/shop">next <span class="arrow-right"><i class="fa fa-angle-right" aria-hidden="true"></i></span><span class="arrow-left"><i class="fa fa-angle-left" aria-hidden="true"></i></span></a>
                                 </div>
                             </div>
                         </li>
@@ -266,55 +184,6 @@
 
 
 <!-- Footer Start -->
-<footer class="footer padding-top-120 padding-bottom-100 clearfix">
-    <div class="container">
-        <!-- Footer Top Start -->
-        <div class="f-top clearfix">
-            <div class="row">
-                <div class="col-sm-12 col-md-3 col-lg-3">
-                </div>
-
-                <div class="col-sm-12 col-md-2 col-lg-1">
-                    <div class="f-nav">
-                        <ul>
-                            <li><a href="/">Home</a></li>
-                            <li><a href="/menu">menu</a></li>
-{{--                            <li><a href="reservation-form-and-content.html">Reservation</a></li>--}}
-{{--                            <li><a href="blog-main.html">blog</a></li>--}}
-                            <li><a href="/shop">Shop</a></li>
-{{--                            <li><a href="contact-google-map.html">Contact</a></li>--}}
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="col-sm-12 col-md-4 col-lg-4">
-                    <div class="f-social-follower">
-{{--                        <a class="btn btn-default" href="reservation-form.html" role="button">online reservation</a>--}}
-                        <div class="f-follower">
-                            <h6>follow</h6>
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-                </div>
-            </div>
-        </div>
-        <!-- Footer Top End -->
-
-        <!-- Footer Bottom Start -->
-        <div class="f-bottom clearfix">
-            <p>Supported by:
-                Unite Innovatech | sale@uniteinnovatech.com | 571-435-7647 All rights reserved.</p>
-        </div>
-        <!-- Footer Bottom End -->
-    </div>
-</footer>
+@include('layouts.footer')
 <!-- Footer End -->
 </html>

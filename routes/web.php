@@ -8,7 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SellerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Http\Request;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,6 +33,11 @@ Route::get('/posts/uid={user}', [PostController::class, 'index']);
 Route::get('/posts/post_id={post}', [PostController::class, 'show']);
 Route::get('/products/seller_id={user}', [ProductController::class, 'index']);
 Route::get('/products/product_id={product}', [ProductController::class, 'show']);
+Route::get('/contact', [indexController::class, 'contact']);
+Route::get('/billing-portal', function (Request $request) {
+    return $request->user()->redirectToBillingPortal();
+});
+
 
 
 Route::group([
@@ -50,12 +55,14 @@ Route::group([
 
     Route::get('/cart',[CartController::class, 'showCart'])->name('cart.show');
     Route::get('/cart/add',[CartController::class, 'addCart']);
-    Route::delete('/cart',[CartController::class, 'deleteCart']);
+    Route::get('/remove/cart',[CartController::class, 'deleteCart']);
 
     Route::get('/buyer/purchase',[BuyerController::class,'showOrder']);
-    Route::get('/buyer/purchase/detail/{order}',[BuyerController::class,'showOrderDetail']);
-    Route::post('/buyer/buy',[BuyerController::class,'buyOrder']);
+//    Route::get('/buyer/purchase/detail/{order}',[BuyerController::class,'showOrderDetail']);
+//    Route::post('/buyer/buy',[BuyerController::class,'buyOrder']);
     Route::post('/buyer/cancel',[BuyerController::class,'cancelOrder']);
+    Route::POST('/buyer/payment',[BuyerController::class,'showOrderDetail']);
+    Route::post('/buyer/pay',[BuyerController::class,'buyOrder']);
 
     Route::get('/seller/sold',[SellerController::class,'showOrder']);
     Route::get('/seller/sold/detail/{order}',[SellerController::class,'showOrderDetail']);

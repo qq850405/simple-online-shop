@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html lang="zxx">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SAMPANNEE</title>
+</head>
+<head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,8 +48,6 @@
     <link rel="stylesheet" type="text/css" href="{{asset('js/date-time-pick/default.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('js/date-time-pick/classic.time.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('js/date-time-pick/classic.date.css')}}">
-    <!-- Date-Picker-End -->
-
     <!--=== Windows Phone JS Code Start ===-->
     <script type="text/javascript">
         if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
@@ -57,10 +64,6 @@
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
     <style>
         .header-logo {
@@ -84,7 +87,7 @@
                 <div class="header-left fxb-col fxb fxb-start-x fxb-center-y fxb-basis-50 fxb-basis-auto">
                     <div class="header-logo"  >
                         <a class="logo-anch" href="/">
-                            <img src="images/logo.png" alt="">
+                            <img src={{asset("images/logo.png")}} alt="">
                         </a>
                     </div>
                 </div>
@@ -103,7 +106,7 @@
                         <div id="navbar" class="navbar-collapse collapse">
                             <ul class="nav navbar-nav">
                                 <li>
-                                    <a href="/menu" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">menu<span class="caret"></span></a>
+                                    <a href="/menu" class="menu" role="button" aria-haspopup="true" aria-expanded="false">menu<span class="caret"></span></a>
                                 </li>
 {{--                                <li class="dropdown">--}}
 {{--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Blog<span class="caret"></span></a>--}}
@@ -113,7 +116,9 @@
 {{--                                    </ul>--}}
 {{--                                </li>--}}
                                 <li class="dropdown">
-                                    <a href="/shop" class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false">Shop<span class="caret"></span></a>
+                                    <a href="/shop" class="menu" role="button" aria-haspopup="true" aria-expanded="false">Online Ordering<span class="caret"></span></a>
+                                </li>
+                                <li><a href="/contact">Contact</a>
                                 </li>
 {{--                                <li class="dropdown">--}}
 {{--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact<span class="caret"></span></a>--}}
@@ -144,10 +149,6 @@
                             <div class="navigation-detail">
                                 <ul>
                                     <li><a href="/menu">Menu</a>
-                                        <ul>
-                                            <li><a href="menu–stretched.html">Menu - Stretched</a></li>
-                                            <li><a href="menu–boxed.html">Menu - Boxed</a></li>
-                                        </ul>
                                     </li>
 {{--                                    <li><a>Blog</a>--}}
 {{--                                        <ul>--}}
@@ -159,12 +160,8 @@
                                     <li><a  href="/shop">Shop</a>
                                     </li>
 {{--                                    <li><a href="error.html">Error</a></li>--}}
-{{--                                    <li><a>Contact</a>--}}
-{{--                                        <ul>--}}
-{{--                                            <li><a href="contact-simple.html">Contact - Simple</a></li>--}}
-{{--                                            <li><a href="contact-google-map.html">Contact - With Google Map</a></li>--}}
-{{--                                        </ul>--}}
-{{--                                    </li>--}}
+                                    <li><a href="/contact">Contact</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -281,7 +278,7 @@
                      data-paddingbottom="[0,0,0,0]"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">Apple pie a la creme </div>
+                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;"></div>
             </li>
             <!-- SLIDE  -->
 
@@ -328,7 +325,7 @@
                      data-paddingbottom="[0,0,0,0]"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">Apple pie a la creme </div>
+                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;"></div>
             </li>
             <!-- SLIDE  -->
             <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500"  data-thumb="../../assets/images/fashion_bg1-100x50.jpg"  data-rotate="0"  data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7" data-saveperformance="off"  data-title="Intro" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
@@ -375,7 +372,7 @@
                      data-paddingbottom="[0,0,0,0]"
                      data-paddingleft="[0,0,0,0]"
 
-                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">Apple pie a la creme </div>
+                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;"></div>
             </li>
             <!-- SLIDE  -->
         </ul>
