@@ -47,7 +47,8 @@ class Product extends Model
     }
 
     public function getProduct(){
-        return $this->query()->get();
+        return $this->query()
+            ->get();
     }
 
 
