@@ -15,7 +15,7 @@ class indexController extends BaseController
     public function index(){
         $products = new Product();
         $category = $products->getProductCategory(1);
-        $menu = $products->getProductByPeriod();
+        $menu = $products->getProduct();
 
         return view('index', compact('category', 'menu'));
     }

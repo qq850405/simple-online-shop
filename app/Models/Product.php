@@ -49,6 +49,9 @@ class Product extends Model
 
     public function getProduct(){
         return $this->query()
+            ->where('status','on')
+            ->where('deleted_at',null)
+            ->where('recommendation','on')
             ->get();
     }
 
@@ -63,7 +66,6 @@ class Product extends Model
             ->where('status','on')
             ->where('deleted_at',null)
             ->where('online_ordering','on')
-//            ->whereBetween('period', [$start, $end])
             ->get();
     }
 
