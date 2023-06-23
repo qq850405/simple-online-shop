@@ -19,7 +19,8 @@ class Product extends Model
         'status',
         'inventory',
         'seller_id',
-        'price'
+        'price',
+        'photo'
     ];
 
     public function seller(): BelongsTo
