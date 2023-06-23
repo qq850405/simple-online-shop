@@ -51,7 +51,6 @@ class Product extends Model
         return $this->query()
             ->where('status','on')
             ->where('deleted_at',null)
-            ->where('recommendation','on')
             ->get();
     }
 
