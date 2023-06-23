@@ -126,7 +126,7 @@
                             @if($count < 6)
                         <li class="products-block">
                             <a href="#" class="product-link">
-                                <img class="img-responsive" src="{{asset("/images/$m->photo)"}}" alt="">
+                                <img class="img-responsive" src="{{asset("/images/$m->photo")}}" alt="">
                                 <div class="info-wrapper">
                                     <h2 class="product-title">{{$m->name}}</h2>
                                     <span class="price">${{$m->price}}</span>
