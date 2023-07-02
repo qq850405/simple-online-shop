@@ -121,7 +121,7 @@
                     <ul class="products-list">
                         <?php $count = 0; ?>
                         @foreach($menu as $m)
-                            @if($m->recommendation == 'on')
+                            @if($m->recommendation == 'on' && $m->photo != null)
                                 <?php $count++ ?>
                             @if($count < 6)
                         <li class="products-block">
