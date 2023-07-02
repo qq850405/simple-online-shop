@@ -5,7 +5,7 @@
     <img class="OF-cover img-responsive" src="images/Shop.png" alt="">
     <div class="banner-overlay"></div>
     <div class="banner-title">
-        <h5>restaurant</h5>
+        <h5>Sampannee</h5>
         <h1>Menu</h1>
         <p></p>
     </div>

@@ -45,5 +45,4 @@
             Unite Innovatech | sale@uniteinnovatech.com</p>
     </div>
     <!-- Footer Bottom End -->
-    </div>
 </footer>
