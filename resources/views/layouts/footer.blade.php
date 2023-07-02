@@ -40,9 +40,9 @@
 
     <!-- Footer Bottom Start -->
     <div class="f-bottom clearfix">
-        <p>2122 P street Northwest, Washington DC 20037</p>
+        <p>2122 P street Northwest, Washington DC 20037 (202) 809-5004</p>
         <p>Supported by:
-            Unite Innovatech | sale@uniteinnovatech.com |  (202) 809-5004 All rights reserved.</p>
+            Unite Innovatech | sale@uniteinnovatech.com</p>
     </div>
     <!-- Footer Bottom End -->
     </div>
