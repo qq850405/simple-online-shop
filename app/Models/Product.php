@@ -44,6 +44,8 @@ class Product extends Model
             ->query()
             ->where('seller_id',$seller_id)
             ->groupBy('category')
+            ->orderBy('category_sort')
+            ->orderBy('menu_sort')
             ->pluck('category');
     }
 
