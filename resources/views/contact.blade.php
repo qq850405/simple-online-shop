@@ -7,8 +7,8 @@
     <div class="banner-title">
         <h5>make an online</h5>
         <h1>Reservation</h1>
-        <p>Or call us at <span> (202) 809-5004</span> any day from</p>
-        <h4>12:00 PM - 07:00 PM</h4>
+        <p>Or call us at <span> (202) 809-5004</span> every day from</p>
+        <h4>10 am ~ 10 pm (last call 9:30 pm)</h4>
     </div>
 </div>
 <!-- Banner End -->

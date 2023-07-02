@@ -13,7 +13,7 @@
                             <li><a href="/menu">menu</a></li>
                             {{--                            <li><a href="reservation-form-and-content.html">Reservation</a></li>--}}
                             {{--                            <li><a href="blog-main.html">blog</a></li>--}}
-                            <li><a href="/shop">Shop</a></li>
+{{--                            <li><a href="/shop">Shop</a></li>--}}
                             {{--                            <li><a href="contact-google-map.html">Contact</a></li>--}}
                         </ul>
                     </div>
@@ -25,10 +25,8 @@
                         <div class="f-follower">
                             <h6>follow</h6>
                             <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.facebook.com/thai.sampannee"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="https://www.instagram.com/sampannee.dupont/"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
