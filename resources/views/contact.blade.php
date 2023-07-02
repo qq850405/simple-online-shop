@@ -5,7 +5,6 @@
     <img class="OF-cover img-responsive" src="images/specialties-parra-img.jpg" alt="">
     <div class="banner-overlay"></div>
     <div class="banner-title">
-        <h5>make an online</h5>
         <h1>Contact</h1>
 
     </div>
