@@ -31,7 +31,7 @@
                                     <div class="list-item-price">${{$m->price}}</div>
                                 </div>
                                 <div class="price-item-desc">
-                                    <p>{!!$m->description!!}</p>
+                                    <p>{!!nl2br($m->description)!!}</p>
                                 </div>
                             </li>
                         </ul>
@@ -46,3 +46,4 @@
 </div>
 <!-- Content-Of-Blog-Detail End -->
 @include('layouts.footer')
+
