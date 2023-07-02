@@ -65,7 +65,7 @@
         <div class="row">
             <div class="col-sm-12 col-md-6">
                 <div class="element-block">
-                    <div class="min-height-550">
+                    <div class="min-height-350">
                         <div class="multilayers-item margin-minus-left-120 position-relative">
                             <div class="image-item">
                                 <img class="img-responsive" src="images/index3.jpg" alt="">
