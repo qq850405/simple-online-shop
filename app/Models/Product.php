@@ -51,6 +51,8 @@ class Product extends Model
         return $this->query()
             ->where('status','on')
             ->where('deleted_at',null)
+            ->orderBy('category_sort')
+            ->orderBy('menu_sort')
             ->get();
     }
 
@@ -65,6 +67,8 @@ class Product extends Model
             ->where('status','on')
             ->where('deleted_at',null)
             ->where('online_ordering','on')
+            ->orderBy('category_sort')
+            ->orderBy('menu_sort')
             ->get();
     }
 
