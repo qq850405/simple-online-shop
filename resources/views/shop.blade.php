@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 @foreach($menu as $m)
-                    @if($m->recommendation == 'off')
+                    @if($m->recommendation == 'Off')
                         <div class="col-sm-12 col-md-6">
                             <ul>
                                 <li>
