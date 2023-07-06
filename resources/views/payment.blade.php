@@ -26,7 +26,7 @@
                     <table class="order-table">
                         <thead>
                         <tr>
-                            <th>Item</th>
+                            <th>No.</th>
                             <th>Name</th>
                             <th>Price</th>
                             <th>Quantity</th>
@@ -37,23 +37,32 @@
                         @if($key != 'total' && $key != 'tax')
 
                                 <tr>
-                                    <td>{{$key}}</td>
+                                    <td>{{$key+1}}</td>
                                     <td>{{$detail[$key]['name']}}</td>
                                     <td>{{$detail[$key]['price']}}</td>
                                     <td>{{$detail[$key]['quantity']}}</td>
                                 </tr>
-
-
+                                @if(isset($detail[$key]['extra']))
+                                    <tr>
+                                        <td colspan="2">Extra: {{$detail[$key]['extra']}}</td>
+                                        <td colspan="2">Spice level: {{$detail[$key]['spice_level']}}</td>
+                                    </tr>
+                                @endif
                         @endif
                     @endforeach
                         <tfoot>
+                        <tr>
+                            <td colspan="2">Tips</td>
+                            <td colspan="2"><input type="number" name="tips"  id="tips-input"  value="0" min="0" step="0.01"></td>
+                        </tr>
+
                         <tr>
                             <td colspan="2">Tax</td>
                             <td colspan="2">${{$detail['tax']}}</td>
                         </tr>
                         <tr>
                             <td colspan="2">Total</td>
-                            <td colspan="2">${{$detail['total']}}</td>
+                            <td colspan="2" id="total-value">${{$detail['total']}}</td>
                         </tr>
                         </tfoot>
                     </table>
@@ -87,6 +96,12 @@
                         data-stripe-publishable-key="{{ env('STRIPE_KEY') }}"
                         id="payment-form">
                         @csrf
+                        @foreach($detail as $key => $d)
+                            @if(isset($detail[$key]['extra']))
+                                <input type="hidden" name="extra[]" value="{{$detail[$key]['extra']}}">
+                                <input type="hidden" name="spice_level[]" value="{{$detail[$key]['spice_level']}}">
+                            @endif
+                        @endforeach
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name</label>
@@ -95,7 +110,7 @@
                         </div>
 
 
-                        <input  name= "total" type='hidden' value = "{{$detail['total']}}" >
+                        <input  name= "total"  id="total" type='hidden' value = "{{$detail['total']}}" >
 
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
@@ -181,7 +196,7 @@
 
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now (${{$detail['total']}})</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit" id="total_submit">Pay Now (${{$detail['total']}})</button>
                             </div>
                         </div>
 
@@ -308,4 +323,22 @@
         // 將格式化後的號碼設置回輸入框
         input.value = formattedPhoneNumber;
     }
+
+    $(document).ready(function() {
+        // 监听Tips输入字段的变化
+        $('#tips-input').on('input', function() {
+            var tips = parseFloat($(this).val());
+            var total = parseFloat('{{$detail['total']}}');
+            var tax = parseFloat('{{$detail['tax']}}');
+
+            // 计算新的Total
+            total = total + tips;
+
+            // 更新Total的显示，保留两位小数
+            $('#total-value').text('$' + total.toFixed(2));
+            $('#total').val(total.toFixed(2));
+            $('#total_submit').text('Pay Now ($' + total.toFixed(2) + ')');
+        });
+    });
+
 </script>

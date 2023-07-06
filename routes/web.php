@@ -45,6 +45,7 @@ Route::group([
 ], function () {
     Route::get('/logout', [UserController::class, 'logout']);
 
+
     Route::post('/posts', [PostController::class, 'store']);
     Route::post('/posts/{post}', [PostController::class, 'update']);
     Route::delete('/posts/{post}', [PostController::class, 'destroy']);
@@ -63,7 +64,7 @@ Route::group([
     Route::post('/buyer/cancel',[BuyerController::class,'cancelOrder']);
     Route::POST('/buyer/payment',[BuyerController::class,'showOrderDetail']);
     Route::post('/buyer/pay',[BuyerController::class,'buyOrder']);
-
+    Route::get('/order_history', [BuyerController::class, 'orderHistory'])->name('order_history');
     Route::get('/seller/sold',[SellerController::class,'showOrder']);
     Route::get('/seller/sold/detail/{order}',[SellerController::class,'showOrderDetail']);
     Route::post('/seller/deliver',[SellerController::class,'deliver']);

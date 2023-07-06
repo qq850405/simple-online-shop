@@ -5,10 +5,7 @@
     <img class="OF-cover img-responsive" src="images/specialties-parra-img.jpg" alt="">
     <div class="banner-overlay"></div>
     <div class="banner-title">
-        <h5>make an online</h5>
-        <h1>Reservation</h1>
-        <p>Or call us at <span>00 40 555 1234</span> any day from</p>
-        <h4>10:00 AM - 07:00 PM</h4>
+        <h1>Register</h1>
     </div>
 </div>
 <!-- Banner End -->

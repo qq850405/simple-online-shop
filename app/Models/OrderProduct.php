@@ -18,6 +18,7 @@ class OrderProduct extends Model
         'order_id',
         'product_id',
         'quantity',
+        'comment'
     ];
 
     public function seller(): HasOne

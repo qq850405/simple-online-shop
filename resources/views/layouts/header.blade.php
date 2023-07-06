@@ -115,10 +115,12 @@
 {{--                                        <li><a href="blog-single-page.html">Blog Single Page</a></li>--}}
 {{--                                    </ul>--}}
 {{--                                </li>--}}
-{{--                                <li class="dropdown">--}}
-{{--                                    <a href="/shop" class="menu" role="button" aria-haspopup="true" aria-expanded="false">Online Ordering<span class="caret"></span></a>--}}
-{{--                                </li>--}}
+                                <li class="dropdown">
+                                    <a href="/shop" class="menu" role="button" aria-haspopup="true" aria-expanded="false">Online Ordering<span class="caret"></span></a>
+                                </li>
                                 <li><a href="/contact">Contact</a>
+                                </li>
+                                <li><a href="/order_history">Order History</a>
                                 </li>
 {{--                                <li class="dropdown">--}}
 {{--                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact<span class="caret"></span></a>--}}
@@ -157,8 +159,8 @@
 {{--                                            <li><a href="blog-single-shop-item.html">Blog Single Shop Item</a></li>--}}
 {{--                                        </ul>--}}
 {{--                                    </li>--}}
-{{--                                    <li><a  href="/shop">Online Ordering</a>--}}
-{{--                                    </li>--}}
+                                    <li><a  href="/shop">Online Ordering</a>
+                                    </li>
 {{--                                    <li><a href="error.html">Error</a></li>--}}
                                     <li><a href="/contact">Contact</a>
                                     </li>

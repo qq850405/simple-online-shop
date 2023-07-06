@@ -15,6 +15,7 @@ use Phattarachai\LineNotify\Facade\Line;
 use Stripe\Charge;
 use Stripe\Customer;
 use Stripe\Stripe;
+use function Sodium\add;
 
 class BuyerController extends Controller
 {
@@ -29,6 +30,8 @@ class BuyerController extends Controller
         $data = $request->validate([
             'product_id' => ['required', 'array'],
             'quantity' => ['required', 'array'],
+            'extra' => ['required', 'array'],
+            'spice_level' => ['required', 'array'],
         ]);
 
 
@@ -38,6 +41,7 @@ class BuyerController extends Controller
         $detail['tax'] = 0;
         $cart = new Cart();
         $cart->getBuyerCart();
+        $index = 0;
         for ($i = 0; $i < count($data['product_id']); $i++) {
             $cart->updateCartQuantity($data['product_id'][$i], $data['quantity'][$i]);
             $product = $products->getProductById($data['product_id'][$i]);
@@ -46,6 +50,20 @@ class BuyerController extends Controller
             $detail[$i]['price'] = $product->price;
             $detail[$i]['quantity'] = $data['quantity'][$i];
             $detail[$i]['subtotal'] = $product->price * $data['quantity'][$i];
+            if($product->add_to == 'on'){
+                $detail[$i]['extra'] = $data['extra'][$index];
+                if($detail[$i]['extra']  == 'beef'){
+                    $detail[$i]['subtotal'] += 2;
+                }
+                if($detail[$i]['extra']  == 'shrimp'){
+                    $detail[$i]['subtotal'] += 3;
+                }
+                if($detail[$i]['extra']  == 'seafood'){
+                    $detail[$i]['subtotal'] += 5;
+                }
+                $detail[$i]['spice_level'] = $data['spice_level'][$index];
+                $index++;
+            }
             $detail['total'] += $detail[$i]['subtotal'];
             if ($product->id != 0) {
                 $detail['tax'] += $detail[$i]['subtotal'] * 0.06;
@@ -70,6 +88,9 @@ class BuyerController extends Controller
                 'city' => ['required', 'string'],
                 'state' => ['required', 'string'],
                 'country' => ['required', 'string'],
+                'extra' => ['array'],
+                'spice_level' => ['array'],
+
             ]);
         } catch (Exception $e) {
             return $e->getMessage();
@@ -90,17 +111,31 @@ class BuyerController extends Controller
             $message = "You have a new order";
             $carts = $cart->getBuyerCart();
             foreach ($carts as $cart) {
+                $product = new Product;
+                $flag  = $product->getProductById($cart->product_id)->add_to == "on";
+                $index = 0;
 
                 $op = new OrderProduct;
                 $op->order_id = $order->id;
                 $op->product_id = $cart->product_id;
                 $op->quantity = $cart->quantity;
+
+                if($flag){
+                    $op->add_to = $data['extra'][$index] . " and " . $data['spice_level'][$index];
+                }
                 $op->save();
 
-                $product = new Product;
+
                 $product->deductInventory($cart->product_id, $cart->quantity);
                 $name = $product->getProductById($cart->product_id)->name;
-                $message .= "\n" . $name . " x " . $cart->quantity;
+
+                if($flag){
+                    $message .= "\n" . $name . " x " . $cart->quantity . " with " . $data['extra'][$index] . " and " . $data['spice_level'][$index];
+                    $index++;
+                }else{
+                    $message .= "\n" . $name . " x " . $cart->quantity;
+                }
+
                 $product->update();
                 $cart->delete();
             }
@@ -145,6 +180,11 @@ class BuyerController extends Controller
             DB::rollBack();
             return redirect()->route('cart.show');
         }
+    }
+
+    public function orderHistory(){
+        $orders = Order::where('buyer_id', Auth::id())->orderBy('created_at', 'desc')->get();
+        return view('history', compact('orders'));
     }
 
 }
