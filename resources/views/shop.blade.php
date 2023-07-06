@@ -51,10 +51,10 @@
             <div class="menu-list-right">
                 <ul class="products-list">
             @foreach($menu as $m)
-                @if($m->recommendation == 1)
+                @if($m->recommendation == 'on')
                         <li class="products-block">
                             <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
-                                <img class="img-responsive" src="images/product-img1.jpg" alt="">
+                                <img class="img-responsive" src="images/{{$m->photo}}" alt="">
                                 <div class="info-wrapper">
                                     <h2 class="product-title">{{$m->name}}</h2>
                                     <span class="price">${{$m->price}}</span>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
                 @foreach($menu as $m)
-                    @if($m->recommendation == 0)
+                    @if($m->recommendation == 'off')
                         <div class="col-sm-12 col-md-6">
                             <ul>
                                 <li>
