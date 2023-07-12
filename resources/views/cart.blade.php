@@ -16,6 +16,7 @@
         <article>
             <header class="cart-header">
                 <h2>Cart</h2>
+                <a href="/shop"><h3>continue to buy</h3></a>
             </header>
             <form class="woocommerce-cart-form" action="/buyer/payment" method="post" >
                 {{csrf_field()}}

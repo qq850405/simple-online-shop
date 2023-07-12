@@ -34,7 +34,7 @@ class BuyerController extends Controller
             'spice_level' => ['required', 'array'],
         ]);
 
-
+        $user = Auth::user();
         $products = new Product();
         $detail = [];
         $detail['total'] = 0;
@@ -71,7 +71,7 @@ class BuyerController extends Controller
         }
 
         $detail['total'] += $detail['tax'];
-        return view('payment', compact('detail'));
+        return view('payment', compact('detail','user'));
     }
 
     public function buyOrder(Request $request)
@@ -90,11 +90,11 @@ class BuyerController extends Controller
                 'country' => ['required', 'string'],
                 'extra' => ['array'],
                 'spice_level' => ['array'],
+                'comment' => ['string'],
 
             ]);
         } catch (Exception $e) {
             return $e->getMessage();
-            return response()->json(['status' => 'The given data was invalid.']);
         }
 
         DB::beginTransaction();
@@ -107,9 +107,14 @@ class BuyerController extends Controller
             $order->billing_city = $data['city'];
             $order->billing_phone = $data['phone'];
             $order->billing_total = $data['total'];
+            $order->comment = $data['comment'];
             $order->save();
             $message = "You have a new order";
             $carts = $cart->getBuyerCart();
+            $message .= "\nOrder ID: " . $order->id;
+            $message .= "\nName: " . $data['name'];
+            $message .= "\nPhone: " . $data['phone'];
+            $message .= "\nComment: " . $data['comment'];
             foreach ($carts as $cart) {
                 $product = new Product;
                 $flag  = $product->getProductById($cart->product_id)->add_to == "on";
@@ -158,7 +163,7 @@ class BuyerController extends Controller
                 "amount" => $data['total'] * 100,
                 "currency" => "usd",
                 "customer" => $customer->id,
-                "description" => "Stripe from www.sampannee.com",
+                "description" => $message,
                 "shipping" => [
                     "name" => $data['name'],
                     "address" => [
@@ -176,7 +181,6 @@ class BuyerController extends Controller
             Line::send($message);
             return redirect()->route('index');
         } catch (Exception $e) {
-            dd($e->getMessage());
             DB::rollBack();
             return redirect()->route('cart.show');
         }

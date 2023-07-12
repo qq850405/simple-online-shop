@@ -30,14 +30,19 @@ class UserController extends Controller
             $data = $request->validate([
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8', 'confirmed'],
+                'phone' => ['required', 'string'],
+                'name' => ['required', 'string'],
+
             ]);
         }catch (ValidationException $e){
-            return response('The given data was invalid.', 400);
+            return redirect()->route('register');
         }
 
             $user = User::create([
                 'email' => $data['email'],
                 'password' => Hash::make($data['password']),
+                'phone' => $data['phone'],
+                'name' => $data['name'],
             ]);
             return redirect()->route('login');
         }

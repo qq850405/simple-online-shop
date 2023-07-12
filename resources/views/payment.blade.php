@@ -52,8 +52,18 @@
                     @endforeach
                         <tfoot>
                         <tr>
+                            <td colspan="2">Choose Tips</td>
+                            <td colspan="2">
+                                <button  type="button" class="btn btn-info" id="add-1">+1</button>
+                                <button  type="button" class="btn btn-success" id="add-2">+2</button>
+                                <button  type="button" class="btn btn-danger" id="add-3">+3</button>
+                            </td>
+                        </tr>
+                        <tr>
                             <td colspan="2">Tips</td>
-                            <td colspan="2"><input type="number" name="tips"  id="tips-input"  value="0" min="0" step="0.01"></td>
+                            <td colspan="2">
+                                <text id="tips">$0</text>
+                            </td>
                         </tr>
 
                         <tr>
@@ -64,11 +74,17 @@
                             <td colspan="2">Total</td>
                             <td colspan="2" id="total-value">${{$detail['total']}}</td>
                         </tr>
+                        <tr>
+                            <td colspan="2">Comments</td>
+                            <td  colspan="4">
+                                <label for="comment"></label>
+                                <textarea name="comment" id="comment" rows="4" cols="50">
+                                </textarea>
+                            </td>
+                        </tr>
                         </tfoot>
+
                     </table>
-
-
-
                 </div>
             </div>
         </div>
@@ -105,7 +121,7 @@
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name</label>
-                                <input class='form-control'  name= "name" type='text' required>
+                                <input class='form-control'  name= "name" type='text' value="{{$user->name}}" required>
                             </div>
                         </div>
 
@@ -115,13 +131,13 @@
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Email</label>
-                                <input class='form-control'  name= "email" type='email' required>
+                                <input class='form-control'  name= "email" type='email' value="{{$user->email}}" required>
                             </div>
                         </div>
 
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
-                                <label class='control-label'>line1</label>
+                                <label class='control-label'>Address</label>
                                 <input class='form-control'  name="line1" type='text' required>
                             </div>
                         </div>
@@ -157,7 +173,7 @@
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Phone</label>
-                                <input class='form-control'  name="phone" type='text'  onkeyup="formatPhoneNumber(this)" required>
+                                <input class='form-control'  name="phone" type='text'  value="{{$user->phone}}" onkeyup="formatPhoneNumber(this)" required>
                             </div>
                         </div>
                         <div class='form-row row'>
@@ -329,7 +345,6 @@
         $('#tips-input').on('input', function() {
             var tips = parseFloat($(this).val());
             var total = parseFloat('{{$detail['total']}}');
-            var tax = parseFloat('{{$detail['tax']}}');
 
             // 计算新的Total
             total = total + tips;
@@ -339,6 +354,53 @@
             $('#total').val(total.toFixed(2));
             $('#total_submit').text('Pay Now ($' + total.toFixed(2) + ')');
         });
+
+
+    // 點擊+1按鈕
+    $('#add-1').on('click', function() {
+        var total = parseFloat($('#total').val());
+        var tipsText = $('#tips').text();
+        var tips = parseFloat(tipsText.replace('$', ''));
+        var newValue = total + 1;
+        var NewTips = tips + 1;
+        updateTotalValue(newValue);
+        updateTipsValue(NewTips);
+    });
+
+    // 點擊+2按鈕
+    $('#add-2').on('click', function() {
+        var total = parseFloat($('#total').val());
+        var tipsText = $('#tips').text();
+        var tips = parseFloat(tipsText.replace('$', ''));
+        var newValue = total + 2;
+        var NewTips = tips + 2;
+        updateTotalValue(newValue);
+        updateTipsValue(NewTips);
+
+    });
+
+    // 點擊+3按鈕
+    $('#add-3').on('click', function() {
+        var total = parseFloat($('#total').val());
+        var tipsText = $('#tips').text();
+        var tips = parseFloat(tipsText.replace('$', ''));
+        var newValue = total + 3;
+        var NewTips = tips + 3;
+        updateTotalValue(newValue);
+        updateTipsValue(NewTips);
+
+    });
+
+    // 更新Total值並顯示
+    function updateTotalValue(value) {
+        $('#total-value').text('$' + value.toFixed(2));
+        $('#total').val(value.toFixed(2));
+        $('#total_submit').text('Pay Now ($' + value.toFixed(2) + ')');
+    }
+        // 更新Total值並顯示
+    function updateTipsValue(value) {
+        $('#tips').text('$' + value.toFixed(2));
+    }
     });
 
 </script>
