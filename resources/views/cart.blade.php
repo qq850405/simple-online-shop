@@ -56,7 +56,7 @@
                             <td class="product-quantity" data-title="Quantity">
                                 <div class="quantity">
                                     <input type="hidden"  class="input-text qty text" name="quantity[]" value="{{$c->quantity}}">
-                                    <input type="number" class="input-text qty text" value="{{$c->quantity}}">
+                                    <input type="number" class="input-text qty text" value="{{$c->quantity}}" min="0">
                                 </div>
                             </td>
                             <td class="product-subtotal" data-title="Total">

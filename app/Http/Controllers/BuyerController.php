@@ -66,7 +66,7 @@ class BuyerController extends Controller
             }
             $detail['total'] += $detail[$i]['subtotal'];
             if ($product->id != 0) {
-                $detail['tax'] += $detail[$i]['subtotal'] * 0.06;
+                $detail['tax'] += $detail[$i]['subtotal'] * 0.1;
             }
         }
 

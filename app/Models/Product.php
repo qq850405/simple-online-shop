@@ -49,7 +49,17 @@ class Product extends Model
             ->orderBy('menu_sort')
             ->pluck('category');
     }
-
+    public function getOnlineProductCategory($seller_id){
+        return $this
+            ->query()
+            ->where('seller_id',$seller_id)
+            ->where('online_ordering','on')
+            ->where('recommendation','0')
+            ->groupBy('category')
+            ->orderBy('category_sort')
+            ->orderBy('menu_sort')
+            ->pluck('category');
+    }
     public function getProduct(){
         return $this->query()
             ->where('status','on')

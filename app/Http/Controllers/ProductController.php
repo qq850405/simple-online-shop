@@ -26,7 +26,8 @@ class ProductController extends Controller
     public function shop(){
         $products = new Product();
         $menu = $products->getProductByPeriod();
-        return view('shop',compact('menu'));
+        $category = $products->getOnlineProductCategory(1);
+        return view('shop',compact('menu', 'category'));
     }
 
 

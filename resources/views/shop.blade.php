@@ -42,11 +42,6 @@
 {{--                </div>--}}
             </div>
         </header>
-        <div class="col-sm-12 col-md-12">
-            <div class="menu-list-title">
-                <h2>RECOMMENDATION</h2>
-            </div>
-        </div>
         <div class="menu-list">
             <div class="menu-list-right">
                 <ul class="products-list">
@@ -70,13 +65,15 @@
             </div>
 
 
+            @foreach($category as $cat)
                 <div class="col-sm-12 col-md-12">
                     <div class="menu-list-title">
-                        <h2>MENU</h2>
+                        <h2>{{$cat}}</h2>
                     </div>
                 </div>
+
                 @foreach($menu as $m)
-                    @if($m->recommendation == 'Off')
+                    @if($m->recommendation == '0' && $m->category == $cat)
                         <div class="col-sm-12 col-md-6">
                             <ul>
                                 <li>
@@ -93,6 +90,7 @@
                         </div>
                    @endif
                 @endforeach
+              @endforeach
                 <div class="col-sm-12 col-md-12">
                     <div class="height-of-menu-list"></div>
                 </div>
