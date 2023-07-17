@@ -142,12 +142,7 @@
                             </div>
                         </div>
 
-                        <div class='form-row row'>
-                            <div class='col-xs-12 form-group required'>
-                                <label class='control-label'>Postal Code</label>
-                                <input class='form-control'  name="postal_code" type='text' required>
-                            </div>
-                        </div>
+
 
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
@@ -165,8 +160,14 @@
 
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
+                                <label class='control-label'>Postal Code</label>
+                                <input class='form-control'  name="postal_code" type='text' required>
+                            </div>
+                        </div>
+                        <div class='form-row row'>
+                            <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Country</label>
-                                <input class='form-control'  name="country" type='text' required>
+                                <input class='form-control'  name="country" type='text' value="US" required>
                             </div>
                         </div>
 
