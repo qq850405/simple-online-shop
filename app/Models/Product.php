@@ -53,7 +53,7 @@ class Product extends Model
         return $this
             ->query()
             ->where('seller_id',$seller_id)
-            ->where('online_ordering','on')
+            ->where('online_ordering','1')
             ->where('recommendation','0')
             ->groupBy('category')
             ->orderBy('category_sort')
@@ -79,7 +79,7 @@ class Product extends Model
         return $this->query()
             ->where('status','on')
             ->where('deleted_at',null)
-            ->where('online_ordering','on')
+            ->where('online_ordering','1')
             ->orderBy('category_sort')
             ->orderBy('menu_sort')
             ->get();
