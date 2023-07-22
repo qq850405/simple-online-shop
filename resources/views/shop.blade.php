@@ -49,7 +49,7 @@
                 @if($m->recommendation == '1')
                         <li class="products-block">
                             <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
-                                <img class="img-responsive" src="images/{{$m->photo}}" alt="">
+                                <img class="img-responsive" src="https://admin.sampannee.com/images/{{$m->photo}}" alt="">
                                 <div class="info-wrapper">
                                     <h2 class="product-title">{{$m->name}}</h2>
                                     <span class="price">${{$m->price}}</span>
