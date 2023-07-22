@@ -46,7 +46,7 @@
             <div class="menu-list-right">
                 <ul class="products-list">
             @foreach($menu as $m)
-                @if($m->recommendation == 'on')
+                @if($m->recommendation == '1')
                         <li class="products-block">
                             <a href="/cart/add?product_id={{$m->id}}&quantity=1" class="product-link">
                                 <img class="img-responsive" src="images/{{$m->photo}}" alt="">
