@@ -75,10 +75,10 @@
                             <td colspan="2" id="total-value">${{$detail['total']}}</td>
                         </tr>
                         <tr>
-                            <td colspan="2">Comments</td>
+                            <td colspan="2">To us:</td>
                             <td  colspan="4">
                                 <label for="comment"></label>
-                                <textarea name="comment" id="comment" rows="4" cols="50">
+                                <textarea name="comment" id="comment" rows="4" cols="50"  oninput="updateHiddenComment(this.value)">
                                 </textarea>
                             </td>
                         </tr>
@@ -113,11 +113,12 @@
                         id="payment-form">
                         @csrf
                         @foreach($detail as $key => $d)
-                            @if(isset($detail[$key]['extra']))
-                                <input type="hidden" name="extra[]" value="{{$detail[$key]['extra']}}">
-                                <input type="hidden" name="spice_level[]" value="{{$detail[$key]['spice_level']}}">
+                            @if(isset($d['extra']))
+                                <input type="hidden" name="extra[]" value="{{$d['extra']}}">
+                                <input type="hidden" name="spice_level[]" value="{{$d['spice_level']}}">
                             @endif
                         @endforeach
+                        <input type="hidden" id="comment-value"  name="comment" value="">
                         <div class='form-row row'>
                             <div class='col-xs-12 form-group required'>
                                 <label class='control-label'>Name</label>
@@ -392,6 +393,8 @@
 
     });
 
+
+
     // 更新Total值並顯示
     function updateTotalValue(value) {
         $('#total-value').text('$' + value.toFixed(2));
@@ -403,5 +406,9 @@
         $('#tips').text('$' + value.toFixed(2));
     }
     });
+
+    function updateHiddenComment(value) {
+        document.querySelector("#comment").value = value.trim();
+    }
 
 </script>

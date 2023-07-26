@@ -66,7 +66,7 @@
                                 ?>
                             </td>
                         </tr>
-                        @if($c->add_to == 'on')
+                        @if($c->add_to == '1')
                             <tr>
                                 <div class="form-group">
 
@@ -188,8 +188,12 @@
                                 <td></td>
                             </tr>
                         @else
-                            <input type="hidden" name="extra[]" value="">
-                            <input type="hidden" name="spice_level[]" value="">
+                            <tr>
+
+                                <td colspan="4">Note:<textarea type="text" name="extra[]" rows="2" cols="25"></textarea></td>
+                                <td> <input type="hidden" name="spice_level[]" value=""></td>
+                                <td>
+                            </tr>
                         @endif
                         @endforeach
                     </table>

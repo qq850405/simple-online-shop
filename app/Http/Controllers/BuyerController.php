@@ -50,20 +50,20 @@ class BuyerController extends Controller
             $detail[$i]['price'] = $product->price;
             $detail[$i]['quantity'] = $data['quantity'][$i];
             $detail[$i]['subtotal'] = $product->price * $data['quantity'][$i];
-            if($product->add_to == 'on'){
-                $detail[$i]['extra'] = $data['extra'][$index];
-                if($detail[$i]['extra']  == 'beef'){
-                    $detail[$i]['subtotal'] += 2;
-                }
-                if($detail[$i]['extra']  == 'shrimp'){
-                    $detail[$i]['subtotal'] += 3;
-                }
-                if($detail[$i]['extra']  == 'seafood'){
-                    $detail[$i]['subtotal'] += 5;
-                }
-                $detail[$i]['spice_level'] = $data['spice_level'][$index];
-                $index++;
+
+            $detail[$i]['extra'] = $data['extra'][$i];
+            if($detail[$i]['extra']  == 'beef'){
+                $detail[$i]['subtotal'] += 2;
             }
+            if($detail[$i]['extra']  == 'shrimp'){
+                $detail[$i]['subtotal'] += 3;
+            }
+            if($detail[$i]['extra']  == 'seafood'){
+                $detail[$i]['subtotal'] += 5;
+            }
+            $detail[$i]['spice_level'] = $data['spice_level'][$index];
+            $index++;
+
             $detail['total'] += $detail[$i]['subtotal'];
             if ($product->id != 0) {
                 $detail['tax'] += $detail[$i]['subtotal'] * 0.1;
@@ -90,7 +90,7 @@ class BuyerController extends Controller
                 'country' => ['required', 'string'],
                 'extra' => ['array'],
                 'spice_level' => ['array'],
-                'comment' => ['string'],
+                'comment' => ['string' , 'nullable'],
 
             ]);
         } catch (Exception $e) {
@@ -107,7 +107,7 @@ class BuyerController extends Controller
             $order->billing_city = $data['city'];
             $order->billing_phone = $data['phone'];
             $order->billing_total = $data['total'];
-            $order->comment = $data['comment'];
+            $order->comment = $data['comment'] ?? '';
             $order->save();
             $message = "You have a new order";
             $carts = $cart->getBuyerCart();
@@ -117,16 +117,15 @@ class BuyerController extends Controller
             $message .= "\nComment: " . $data['comment'];
             foreach ($carts as $cart) {
                 $product = new Product;
-                $flag  = $product->getProductById($cart->product_id)->add_to == "on";
                 $index = 0;
 
                 $op = new OrderProduct;
                 $op->order_id = $order->id;
                 $op->product_id = $cart->product_id;
                 $op->quantity = $cart->quantity;
-
-                if($flag){
-                    $op->add_to = $data['extra'][$index] . " and " . $data['spice_level'][$index];
+                $op->add_to = $data['extra'][$index];
+                if(isset($data['spice_level'][$index])) {
+                    $op->add_to .= " and " . $data['spice_level'][$index];
                 }
                 $op->save();
 
@@ -134,7 +133,7 @@ class BuyerController extends Controller
                 $product->deductInventory($cart->product_id, $cart->quantity);
                 $name = $product->getProductById($cart->product_id)->name;
 
-                if($flag){
+                if(isset($data['spice_level'][$index])) {
                     $message .= "\n" . $name . " x " . $cart->quantity . " with " . $data['extra'][$index] . " and " . $data['spice_level'][$index];
                     $index++;
                 }else{
@@ -182,6 +181,7 @@ class BuyerController extends Controller
             return redirect()->route('index');
         } catch (Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return redirect()->route('cart.show');
         }
     }

@@ -118,6 +118,9 @@
                                 <li class="dropdown">
                                     <a href="/shop" class="menu" role="button" aria-haspopup="true" aria-expanded="false">Online Ordering<span class="caret"></span></a>
                                 </li>
+                                <li class="dropdown">
+                                    <a href="/cart" class="cart" role="button" aria-haspopup="true" aria-expanded="false">Cart<span class="caret"></span></a>
+                                </li>
                                 <li><a href="/contact">Contact</a>
                                 </li>
                                 <li><a href="/order_history">Order History</a>
