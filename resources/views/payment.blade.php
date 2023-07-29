@@ -39,7 +39,7 @@
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$detail[$key]['name']}}</td>
-                                    <td>{{$detail[$key]['price']}}</td>
+                                    <td>{{number_format($detail[$key]['price'],2)}}</td>
                                     <td>{{$detail[$key]['quantity']}}</td>
                                 </tr>
                                 @if(isset($detail[$key]['extra']))
@@ -50,36 +50,40 @@
                                 @endif
                         @endif
                     @endforeach
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+            <div class="panel panel-default credit-card-box">
+                <div class="tax-section">
+                    <table class="order-table">
                         <tfoot>
+                        <tr>
+                            <td colspan="2">Tax (10%)</td>
+                            <td colspan="2">${{number_format($detail['tax'],2)}}</td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">SubTotal</td>
+                            <td colspan="2" id="subtotal-value">${{number_format($detail['total'],2)}}</td>
+                        </tr>
+
                         <tr>
                             <td colspan="2">Choose Tips</td>
                             <td colspan="2">
-                                <button  type="button" class="btn btn-dark" id="add-0">0</button>
-                                <button  type="button" class="btn btn-info" id="add-1">+1</button>
-                                <button  type="button" class="btn btn-success" id="add-2">+2</button>
-                                <button  type="button" class="btn btn-danger" id="add-3">+3</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="2">Tips</td>
-                            <td colspan="2">
-                                <text id="tips">$0</text>
+                                <input type="number" id="input-tips" name="tips" min="0" step="0.01" value="0">
                             </td>
                         </tr>
 
                         <tr>
-                            <td colspan="2">Tax</td>
-                            <td colspan="2">${{$detail['tax']}}</td>
-                        </tr>
-                        <tr>
                             <td colspan="2">Total</td>
-                            <td colspan="2" id="total-value">${{$detail['total']}}</td>
+                            <td colspan="2" id="total-value">${{number_format($detail['total'],2)}}</td>
                         </tr>
                         <tr>
                             <td colspan="2">To us:</td>
                             <td  colspan="4">
                                 <label for="comment"></label>
-                                <textarea name="comment" id="comment" rows="4" cols="50"  oninput="updateHiddenComment(this.value)">
+                                <textarea name="fcomment" id="comment" rows="4" cols="50"  oninput="updateHiddenComment(this.value)">
                                 </textarea>
                             </td>
                         </tr>
@@ -345,7 +349,7 @@
 
     $(document).ready(function() {
         // 监听Tips输入字段的变化
-        $('#tips-input').on('input', function() {
+        $('#input-tips').on('input', function () {
             var tips = parseFloat($(this).val());
             var total = parseFloat('{{$detail['total']}}');
 
@@ -357,50 +361,6 @@
             $('#total').val(total.toFixed(2));
             $('#total_submit').text('Pay Now ($' + total.toFixed(2) + ')');
         });
-
-        // 點擊+1按鈕
-        $('#add-0').on('click', function() {
-            var total = parseFloat($('#total').val());
-            var tipsText = $('#tips').text();
-            var tips = parseFloat(tipsText.replace('$', ''));
-            var newValue = total - tips;
-            var NewTips =  0;
-            updateTotalValue(newValue);
-            updateTipsValue(NewTips);
-        });
-    // 點擊+1按鈕
-    $('#add-1').on('click', function() {
-        var total = parseFloat($('#total').val());
-        var tipsText = $('#tips').text();
-        var tips = parseFloat(tipsText.replace('$', ''));
-        var newValue = total + 1;
-        var NewTips = tips + 1;
-        updateTotalValue(newValue);
-        updateTipsValue(NewTips);
-    });
-
-    // 點擊+2按鈕
-    $('#add-2').on('click', function() {
-        var total = parseFloat($('#total').val());
-        var tipsText = $('#tips').text();
-        var tips = parseFloat(tipsText.replace('$', ''));
-        var newValue = total + 2;
-        var NewTips = tips + 2;
-        updateTotalValue(newValue);
-        updateTipsValue(NewTips);
-
-    });
-
-    // 點擊+3按鈕
-    $('#add-3').on('click', function() {
-        var total = parseFloat($('#total').val());
-        var tipsText = $('#tips').text();
-        var tips = parseFloat(tipsText.replace('$', ''));
-        var newValue = total + 3;
-        var NewTips = tips + 3;
-        updateTotalValue(newValue);
-        updateTipsValue(NewTips);
-
     });
 
 
@@ -412,13 +372,9 @@
         $('#total_submit').text('Pay Now ($' + value.toFixed(2) + ')');
     }
         // 更新Total值並顯示
-    function updateTipsValue(value) {
-        $('#tips').text('$' + value.toFixed(2));
-    }
-    });
 
     function updateHiddenComment(value) {
-        document.querySelector("#comment").value = value.trim();
+        document.querySelector("#comment-value").value = value.trim();
     }
 
 </script>

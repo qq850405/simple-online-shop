@@ -54,12 +54,15 @@ class BuyerController extends Controller
             $detail[$i]['extra'] = $data['extra'][$i];
             if($detail[$i]['extra']  == 'beef'){
                 $detail[$i]['subtotal'] += 2;
+                $detail[$i]['extra'] = 'beef (+2)';
             }
             if($detail[$i]['extra']  == 'shrimp'){
                 $detail[$i]['subtotal'] += 3;
+                $detail[$i]['extra'] = 'shrimp (+3)';
             }
             if($detail[$i]['extra']  == 'seafood'){
                 $detail[$i]['subtotal'] += 5;
+                $detail[$i]['extra'] = 'seafood (+5)';
             }
             $detail[$i]['spice_level'] = $data['spice_level'][$index];
             $index++;
