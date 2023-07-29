@@ -118,9 +118,10 @@ class BuyerController extends Controller
             $message .= "\nName: " . $data['name'];
             $message .= "\nPhone: " . $data['phone'];
             $message .= "\nNote: " . $data['comment'];
+            $index = 0;
             foreach ($carts as $cart) {
                 $product = new Product;
-                $index = 0;
+
 
                 $op = new OrderProduct;
                 $op->order_id = $order->id;
@@ -131,7 +132,7 @@ class BuyerController extends Controller
                     $op->add_to .= " and " . $data['spice_level'][$index];
                 }
                 $op->save();
-
+                $index++;
 
                 $product->deductInventory($cart->product_id, $cart->quantity);
                 $name = $product->getProductById($cart->product_id)->name;
