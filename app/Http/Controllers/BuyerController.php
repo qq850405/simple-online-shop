@@ -185,6 +185,7 @@ class BuyerController extends Controller
             return redirect()->route('index');
         } catch (Exception $e) {
             DB::rollBack();
+            dd($e->getMessage());
             return redirect()->route('cart.show');
         }
     }
