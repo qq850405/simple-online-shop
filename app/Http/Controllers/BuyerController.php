@@ -132,7 +132,6 @@ class BuyerController extends Controller
                     $op->add_to .= " and " . $data['spice_level'][$index];
                 }
                 $op->save();
-                $index++;
 
                 $product->deductInventory($cart->product_id, $cart->quantity);
                 $name = $product->getProductById($cart->product_id)->name;
@@ -146,6 +145,7 @@ class BuyerController extends Controller
 
                 $product->update();
                 $cart->delete();
+                $index++;
             }
 
             Stripe::setApiKey(env('STRIPE_SECRET'));
