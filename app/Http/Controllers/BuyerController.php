@@ -41,7 +41,6 @@ class BuyerController extends Controller
         $detail['tax'] = 0;
         $cart = new Cart();
         $cart->getBuyerCart();
-        $index = 0;
         for ($i = 0; $i < count($data['product_id']); $i++) {
             $cart->updateCartQuantity($data['product_id'][$i], $data['quantity'][$i]);
             $product = $products->getProductById($data['product_id'][$i]);
@@ -64,8 +63,8 @@ class BuyerController extends Controller
                 $detail[$i]['subtotal'] += 5;
                 $detail[$i]['extra'] = 'seafood (+5)';
             }
-            $detail[$i]['spice_level'] = $data['spice_level'][$index];
-            $index++;
+
+            $detail[$i]['spice_level'] = $data['spice_level'][$i];
 
             $detail['total'] += $detail[$i]['subtotal'];
             if ($product->id != 0) {
