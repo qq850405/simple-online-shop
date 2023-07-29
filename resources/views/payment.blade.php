@@ -118,8 +118,10 @@
                         id="payment-form">
                         @csrf
                         @foreach($detail as $key => $d)
+                            @if(isset($d['extra']))
                                 <input type="hidden" name="extra[]" value="{{$d['extra']}}">
                                 <input type="hidden" name="spice_level[]" value="{{$d['spice_level']}}">
+                            @endif
                         @endforeach
                         <input type="hidden" id="comment-value"  name="comment" value="">
                         <div class='form-row row'>
