@@ -54,6 +54,7 @@
                         <tr>
                             <td colspan="2">Choose Tips</td>
                             <td colspan="2">
+                                <button  type="button" class="btn btn-dark" id="add-0">0</button>
                                 <button  type="button" class="btn btn-info" id="add-1">+1</button>
                                 <button  type="button" class="btn btn-success" id="add-2">+2</button>
                                 <button  type="button" class="btn btn-danger" id="add-3">+3</button>
@@ -357,7 +358,16 @@
             $('#total_submit').text('Pay Now ($' + total.toFixed(2) + ')');
         });
 
-
+        // 點擊+1按鈕
+        $('#add-0').on('click', function() {
+            var total = parseFloat($('#total').val());
+            var tipsText = $('#tips').text();
+            var tips = parseFloat(tipsText.replace('$', ''));
+            var newValue = total - tips;
+            var NewTips =  0;
+            updateTotalValue(newValue);
+            updateTipsValue(NewTips);
+        });
     // 點擊+1按鈕
     $('#add-1').on('click', function() {
         var total = parseFloat($('#total').val());

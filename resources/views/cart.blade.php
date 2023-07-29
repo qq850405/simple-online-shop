@@ -206,14 +206,10 @@
                                 <table class="shop-table shop-table-responsive">
                                     <tbody>
                                     <tr class="cart-subtotal">
-                                        <th>Subtotal</th>
-                                        <td data-title="Subtotal">
-                                            <span class="woocommerce-Price-amount amount">${{$price}}</span>
-                                        </td>
-                                    </tr>
-                                    <tr class="order-total">
                                         <th>Total</th>
-                                        <td data-title="Total"><strong><span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol">$</span>{{$price}}</span></strong> </td>
+                                        <td data-title="Subtotal">
+                                            <span id="total-price" class="woocommerce-Price-amount amount"></span>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -292,4 +288,52 @@
             $('.order-total .woocommerce-Price-amount').html('<span class="woocommerce-Price-currencySymbol">$</span>' + total.toFixed(2));
         }
     });
+</script>
+
+<script>
+    // 函數用於計算並更新總價格
+    function updateTotalPrice() {
+        let price = parseFloat(<?php echo $price; ?>);
+        let extras = document.getElementsByName("extra[]");
+        let selectedExtras = [];
+
+        // 獲取選擇的附加選項
+        for (let i = 0; i < extras.length; i++) {
+            if (extras[i].checked) {
+                selectedExtras.push(extras[i].value);
+            }
+        }
+
+        // 根據選擇的附加選項計算額外的費用
+        let additionalCost = 0;
+        if (selectedExtras.includes("beef")) {
+            additionalCost += 2;
+        }
+        if (selectedExtras.includes("shrimp")) {
+            additionalCost += 3;
+        }
+        if (selectedExtras.includes("seafood")) {
+            additionalCost += 5;
+        }
+        // 如果需要，你可以添加更多的條件處理其他附加選項。
+
+        // 更新總價格顯示
+        let total = price + additionalCost;
+        document.getElementById("total-price").innerText = "$" + total.toFixed(2);
+    }
+
+    // 為表單輸入添加事件監聽器
+    const spiceLevelInputs = document.getElementsByName("spice_level[]");
+    const extraInputs = document.getElementsByName("extra[]");
+
+    spiceLevelInputs.forEach((input) => {
+        input.addEventListener("change", updateTotalPrice);
+    });
+
+    extraInputs.forEach((input) => {
+        input.addEventListener("change", updateTotalPrice);
+    });
+
+    // 初始時更新總價格
+    updateTotalPrice();
 </script>
