@@ -114,7 +114,7 @@ class BuyerController extends Controller
             $message .= "\nOrder ID: " . $order->id;
             $message .= "\nName: " . $data['name'];
             $message .= "\nPhone: " . $data['phone'];
-            $message .= "\nComment: " . $data['comment'];
+            $message .= "\nNote: " . $data['comment'];
             foreach ($carts as $cart) {
                 $product = new Product;
                 $index = 0;
