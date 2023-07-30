@@ -137,7 +137,6 @@ class BuyerController extends Controller
 
                 if(isset($data['spice_level'][$index])) {
                     $message .= "\n" . $name . " x " . $cart->quantity . " with " . $data['extra'][$index] . " and " . $data['spice_level'][$index];
-                    $index++;
                 }else{
                     $message .= "\n" . $name . " x " . $cart->quantity;
                 }
