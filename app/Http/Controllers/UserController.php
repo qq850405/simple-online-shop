@@ -35,7 +35,7 @@ class UserController extends Controller
 
             ]);
         }catch (ValidationException $e){
-            return redirect()->route('register');
+            return redirect()->route('register')->with('error', 'The email has already been registered.');;
         }
 
             $user = User::create([
@@ -45,7 +45,7 @@ class UserController extends Controller
                 'name' => $data['name'],
             ]);
             return redirect()->route('login');
-        }
+    }
 
 
     public function login(Request $request)

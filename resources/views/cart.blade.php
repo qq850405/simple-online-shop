@@ -191,7 +191,7 @@
                         @else
                             <tr>
 
-                                <td colspan="4">Note:<textarea type="text" name="extra[]" rows="2" cols="25"></textarea></td>
+                                <td colspan="4">Note:<textarea type="text" name="extra[]" id="note-{{$c->product_id}}" rows="2" cols="25"></textarea></td>
                                 <td> <input type="hidden" name="spice_level[]" value=""></td>
                                 <td>
                             </tr>
@@ -199,7 +199,6 @@
                         @endforeach
                     </table>
                 </div>
-                <div id="saveStatus" style="display: none;">选项已保存。</div>
                 <div class="cart-collaterals">
                     <div class="row">
                         <div class="col-sm-push-4 col-sm-8 col-md-push-6 col-md-6 col-lg-4 col-lg-push-8">
@@ -343,10 +342,12 @@
 <script>
     // 获取所有菜单项
     var allInputs = document.querySelectorAll("input[name='spice_level[]'], input[name='extra[]']");
+    var noteTextarea = document.querySelectorAll("textarea[name='extra[]']");
 
 
     // 从本地存储中获取保存的选项
     var savedOptions = JSON.parse(localStorage.getItem("selectedOptions"));
+    var savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
 
     // 设置已保存的选项为选中状态
     if (savedOptions) {
@@ -355,6 +356,11 @@
             if (input) {
                 input.checked = true;
             }
+        });
+    }
+    if (savedNotes) {
+        savedNotes.forEach(function(note, index) {
+            noteTextarea[index].value = note;
         });
     }
     // 为每个菜单项添加更改事件处理程序
@@ -380,6 +386,20 @@
             // 将选项数组转换为JSON字符串并保存在本地存储中
             localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
 
+        });
+    });
+
+    // 为每个文本区域添加更改事件处理程序
+    noteTextarea.forEach(function(textarea) {
+        textarea.addEventListener("input", function() {
+            // 获取所有文本区域的内容
+            var notes = [];
+            noteTextarea.forEach(function(note) {
+                notes.push(note.value);
+            });
+
+            // 将文本区域内容数组转换为JSON字符串并保存在本地存储中
+            localStorage.setItem("savedNotes", JSON.stringify(notes));
         });
     });
 </script>

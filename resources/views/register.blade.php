@@ -10,6 +10,7 @@
 </div>
 <!-- Banner End -->
 <!-- Reservation Form Section Start -->
+
 <div class="content inner-pg reservation-section">
     <div class="container">
         <div class="reservation-form">
@@ -25,6 +26,11 @@
                                     <input id="account" name="email" type="email" class="form-control" required>
                                 </div>
                             </div>
+                            @if (session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
                             <div class="col-sm-4 col-md-12">
                                 <div class="form-group">
                                     <label>password</label>
