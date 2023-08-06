@@ -113,7 +113,6 @@
                                     </td>
                                 </div>
                             </tr>
-
                             <tr>
                                 <td>
                                     <label for="extra">choose: </label>
@@ -187,6 +186,8 @@
                                 <td></td>
                                 <td></td>
                             </tr>
+
+
                         @else
                             <tr>
 
@@ -198,6 +199,7 @@
                         @endforeach
                     </table>
                 </div>
+                <div id="saveStatus" style="display: none;">选项已保存。</div>
                 <div class="cart-collaterals">
                     <div class="row">
                         <div class="col-sm-push-4 col-sm-8 col-md-push-6 col-md-6 col-lg-4 col-lg-push-8">
@@ -337,3 +339,48 @@
     // 初始時更新總價格
     updateTotalPrice();
 </script>
+
+<script>
+    // 获取所有菜单项
+    var allInputs = document.querySelectorAll("input[name='spice_level[]'], input[name='extra[]']");
+
+
+    // 从本地存储中获取保存的选项
+    var savedOptions = JSON.parse(localStorage.getItem("selectedOptions"));
+
+    // 设置已保存的选项为选中状态
+    if (savedOptions) {
+        savedOptions.forEach(function(option) {
+            var input = document.querySelector("input[id='" + option + "']");
+            if (input) {
+                input.checked = true;
+            }
+        });
+    }
+    // 为每个菜单项添加更改事件处理程序
+    allInputs.forEach(function(input) {
+        input.addEventListener("change", function() {
+            // 获取所有选中的辣度选项和额外选项
+            var selectedSpiceLevels = document.querySelectorAll("input[name='spice_level[]']:checked");
+            var selectedExtras = document.querySelectorAll("input[name='extra[]']:checked");
+
+            // 创建一个数组来保存选项的值
+            var selectedOptions = [];
+
+            // 将选中的辣度选项添加到数组中
+            selectedSpiceLevels.forEach(function(spiceLevel) {
+                selectedOptions.push(spiceLevel.id);
+            });
+
+            // 将选中的额外选项添加到数组中
+            selectedExtras.forEach(function(extra) {
+                selectedOptions.push(extra.id);
+            });
+
+            // 将选项数组转换为JSON字符串并保存在本地存储中
+            localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
+
+        });
+    });
+</script>
+
