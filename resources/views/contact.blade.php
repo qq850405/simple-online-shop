@@ -29,9 +29,6 @@
                         <h4>10 am ~ 10 pm (last call 9:30 pm)</h4>
                     </center>
 
-                    <h3>My Google Maps Demo</h3>
-                    <!--The div element for the map -->
-                    <div id="map"></div>
                 </div>
             </div>
         </div>
