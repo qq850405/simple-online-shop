@@ -26,7 +26,7 @@
                         <h3> (202) 809-5004</h3>
                         <h3>2122 P street Northwest, Washington DC 20037</h3>
                         <h3>sale@uniteinnovatech.com</h3>
-                        <h4>10 am ~ 10 pm (last call 9:30 pm)</h4>
+                        <h4>11 am ~ 10 pm (last call 9:30 pm)</h4>
                     </center>
 
                 </div>
