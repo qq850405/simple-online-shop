@@ -16,202 +16,102 @@
         <article>
             <header class="cart-header">
                 <h2>Cart</h2>
-                <a href="/shop"><h3>continue to buy</h3></a>
+                <a href="/shop">
+                    <h3>continue to buy</h3>
+                </a>
             </header>
-            <form class="woocommerce-cart-form" action="/buyer/payment" method="post">
-                {{csrf_field()}}
+            <form class="woocommerce-cart-form" id = "cart-form" action="/buyer/payment" method="post">
+                {{ csrf_field() }}
                 <div class="table-responsive">
                     <table class="table cart-table table-hover">
                         <thead>
-                        <tr>
-                            <th class="product-remove">&nbsp;</th>
-                            <th class="product-thumbnail">&nbsp;</th>
-                            <th class="product-name">Product</th>
-                            <th class="product-price">Price</th>
-                            <th class="product-quantity">Quantity</th>
-                            <th class="product-subtotal">Total</th>
-                        </tr>
+                            <tr>
+                                <th class="product-remove">&nbsp;</th>
+                                <th class="product-thumbnail">&nbsp;</th>
+                                <th class="product-name">Product</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-subtotal">Extra</th>
+                                <th class="product-subtotal">Favor</th>
+                                <th class="product-subtotal">Total</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <?php
-                        $price = 0;
-                        ?>
-                        @foreach($cart as $c)
-                            <tr class="cart-item">
-                                <td class="product-remove">
-                                    <a href="/remove/cart?product_id={{$c->product_id}}" class="remove"></a>
-                                </td>
-                                <td class="product-thumbnail">
-                                    <a href="#">
-                                        <input type="hidden" name="product_id[]" value="{{$c->product_id}}">
-                                        <img class="img-responsive" src="images/cart-img.jpg" alt="">
-                                    </a>
-                                </td>
-                                <td class="product-name" data-title="Product">
-                                    <a href="#">{{$c->name}}</a>
-                                </td>
-                                <td class="product-price" data-title="Price">
-                                    <span>${{$c->price}}</span>
-                                </td>
-                                <td class="product-quantity" data-title="Quantity">
-                                    <div class="quantity">
-                                        <input type="hidden" class="input-text qty text" name="quantity[]"
-                                               value="{{$c->quantity}}">
-                                        <input type="number" class="input-text qty text" value="{{$c->quantity}}"
-                                               min="0">
-                                    </div>
-                                </td>
-                                <td class="product-subtotal" data-title="Total">
-                                    <span>${{$c->price * $c->quantity}}</span>
+                            <?php
+                            $price = 0;
+                            ?>
+                            @foreach ($cart as $c)
+                                <tr class="cart-item">
+                                    <td class="product-remove">
+                                        <a href="/remove/cart?product_id={{ $c->product_id }}" class="remove"></a>
+                                    </td>
+                                    <td class="product-thumbnail">
+                                        <a href="#">
+                                            <input type="hidden" name="product_id[]" value="{{ $c->product_id }}">
+                                            <img class="img-responsive" src="images/cart-img.jpg" alt="">
+                                        </a>
+                                    </td>
+                                    <td class="product-name" data-title="Product">
+                                        <a href="#">{{ $c->name }}</a>
+                                    </td>
+                                    <td class="product-price" data-title="Price">
+                                        <span>${{ $c->price }}</span>
+                                    </td>
+                                    <td class="product-quantity" data-title="Quantity">
+                                        <div class="quantity">
+                                            <div class="quantity">
+                                                <!-- 可見的輸入框，供用戶更改數量 -->
+                                                <input type="number" class="input-text qty text"
+                                                    name="display_quantity[]" value="{{ $c->quantity }}"
+                                                    min="0">
+                                                <!-- 隱藏的輸入框，用於提交表單數據 -->
+                                                <input type="hidden" class="input-text qty text hidden"
+                                                    name="quantity[]" value="{{ $c->quantity }}">
+
+
+                                            </div>
+
+                                        </div>
+                                    </td>
+                                    <td>
+                                        @if ($c->add_to == '1')
+                                            <select name="extra[]" id="add_to-select" required>
+                                                <option value="default-0" selected disabled>--Extra-- </option>
+                                                <option value="pork-0">Pork</option>
+                                                <option value="beef-2">Beef(+2)</option>
+                                                <option value="shrimp-3">Shrimp(+3)</option>
+                                                <option value="seafood-5">seafood(+5)</option>
+                                                <option value="tofu-0">Tofu</option>
+                                                <option value="veggie-0">Veggies</option>
+                                                <option value="chicken-0">Chicken</option>
+                                            </select>
+                                        @else
+                                            <input type="hidden" name="extra[]" value="">
+                                        @endif
+
+
+                                    </td>
+                                    <td>
+                                        <select name="add_to[]" id="extra_to" required>
+                                            <option value="default-0" selected disabled>--Favor--
+                                            </option>
+                                            <option value="no_spicy">No Spicy</option>
+                                            <option value="mild">Mild</option>
+                                            <option value="medium_spicy">Medium Spicy</option>
+                                            <option value="spicy">Spicy</option>
+                                            <option value="hell_spicy">Hell Spicy</option>
+                                        </select>
+
+                                    </td>
+                                    <td class="product-subtotal" data-title="Total">
+                                        <span>${{ $c->price * $c->quantity }}</span>
                                         <?php
                                         $price += $c->price * $c->quantity;
                                         ?>
-                                </td>
-                            </tr>
-                            @if($c->add_to == '1')
-                                <tr>
-                                    <div class="form-group">
-
-                                        <td><label for="spice_level">Spice Level:</label></td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="spice_level[]"
-                                                       id="spice-no-{{$c->product_id}}" value="no-spicy" checked>
-                                                <label class="form-check-label" for="spice-no">
-                                                    No spicy
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="spice_level[]"
-                                                       id="spice-mild-{{$c->product_id}}" value="mild">
-                                                <label class="form-check-label" for="spice-mild-{{$c->product_id}}">
-                                                    Mild
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="spice_level[]"
-                                                       id="spice-medium-{{$c->product_id}}" value="medium-spicy">
-                                                <label class="form-check-label" for="spice-medium-{{$c->product_id}}">
-                                                    Medium spicy
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="spice_level[]"
-                                                       id="spice-spicy-{{$c->product_id}}" value="spicy">
-                                                <label class="form-check-label" for="spice-spicy-{{$c->product_id}}">
-                                                    Spicy
-                                                </label>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="radio" name="spice_level[]"
-                                                       id="spice-hell-{{$c->product_id}}" value="hell-spicy">
-                                                <label class="form-check-label" for="spice-hell-{{$c->product_id}}">
-                                                    Hell spicy
-                                                </label>
-                                            </div>
-                                        </td>
-                                    </div>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label for="extra">choose: </label>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="pork-{{$c->product_id}}" value="pork" required>
-                                            <label class="form-check-label" for="pork-{{$c->product_id}}">
-                                                Pork
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="beef-{{$c->product_id}}" value="beef" data-price="2" required>
-                                            <label class="form-check-label" for="beef-{{$c->product_id}}">
-                                                Beef (+$2)
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="shrimp-{{$c->product_id}}" value="shrimp" data-price="3" required>
-                                            <label class="form-check-label" for="shrimp-{{$c->product_id}}">
-                                                Shrimp (+3)
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="seafood-{{$c->product_id}}" value="seafood" data-price="5" required>
-                                            <label class="form-check-label" for="seafood-{{$c->product_id}}">
-                                                Seafood (+5)
-                                            </label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="tofu-{{$c->product_id}}" value="tofu" data-price="0" required>
-                                            <label class="form-check-label" for="tofu-{{$c->product_id}}">
-                                                Tofu
-                                            </label>
-                                        </div>
                                     </td>
 
                                 </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="vaggies-{{$c->product_id}}" value="veggies" data-price="0" required>
-                                            <label class="form-check-label" for="vaggies-{{$c->product_id}}">
-                                                Veggies
-                                            </label>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div class="form-check">
-                                            <input class="form-check-input" type="radio" name="extra[]"
-                                                   id="chicken-{{$c->product_id}}" value="chicken" data-price="0" required>
-                                            <label class="form-check-label" for="chicken-{{$c->product_id}}">
-                                                Chicken
-                                            </label>
-                                        </div>
-                                    </td>
-
-                                    <td>
-                                    </td>
-
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-
-
-                            @else
-                                <tr>
-
-                                    <td colspan="4">Note:<textarea type="text" name="extra[]"
-                                                                   id="note-{{$c->product_id}}" rows="2"
-                                                                   cols="25"></textarea></td>
-                                    <td><input type="hidden" name="spice_level[]" value=""></td>
-                                    <td>
-                                </tr>
-                        @endif
-                        @endforeach
+                            @endforeach
                     </table>
                 </div>
                 <div class="cart-collaterals">
@@ -221,12 +121,15 @@
                                 <h2>Cart totals</h2>
                                 <table class="shop-table shop-table-responsive">
                                     <tbody>
-                                    <tr class="cart-subtotal">
-                                        <th>Total</th>
-                                        <td data-title="Subtotal">
-                                            <span id="total-price" class="woocommerce-Price-amount amount"></span>
-                                        </td>
-                                    </tr>
+                                        <tr class="cart-subtotal">
+                                            <th>Total</th>
+                                            <td data-title="Subtotal">
+                                                <input type="hidden" name="total_price" id="total-price-input"
+                                                    value="">
+
+                                                <span id="total-price" class="woocommerce-Price-amount amount"></span>
+                                            </td>
+                                        </tr>
                                     </tbody>
                                 </table>
                                 <button type="submit" class="btn btn-default">Go to checkout</button>
@@ -243,152 +146,62 @@
 </div>
 <!-- Specialties Section Start -->
 @include('layouts.footer')
+<!-- 在包含其他腳本之後添加此腳本 -->
+<!-- 在包含其他腳本之後添加此腳本 -->
 <script>
-    // const productPrice = parseFloat(quantityInput.closest('.cart-item').querySelector('.product-price span').textContent.replace('$',''));
-    // 获取所有商品元素
-    const cartItems = document.querySelectorAll('.cart-item');
+    document.addEventListener('DOMContentLoaded', function() {
+        // 在此處添加用於動態計算的JavaScript邏輯
+        updateCartTotal();
 
-    // 遍历每个商品元素
-    cartItems.forEach((item) => {
-        const quantityInput = item.querySelector('.product-quantity input[type="number"]');
-        const subtotalElement = item.querySelector('.product-subtotal span');
-
-        // 获取商品价格（示例中使用 data 属性存储价格）
-        const productPrice = parseFloat(item.dataset.productPrice);
-
-        // 获取附加选项的 input 元素
-        const extraInputs = item.querySelectorAll('input[name="extra[]"]');
-
-        // 添加事件监听器以响应数量和附加选项的更改
-        quantityInput.addEventListener('input', () => {
-            updateSubtotalAndTotal();
+        // 添加數量和選項更改的事件監聽器
+        document.querySelectorAll('.input-text.qty, select[name^="extra_to"]').forEach(function(element) {
+            element.addEventListener('change', function() {
+                updateCartTotal();
+            });
         });
-
-        extraInputs.forEach((extraInput) => {
-            extraInput.addEventListener('change', () => {
-                updateSubtotalAndTotal();
+        document.querySelectorAll('.input-text.qty, select[id^="add_to-select"]').forEach(function(element) {
+            element.addEventListener('change', function() {
+                updateCartTotal();
             });
         });
 
-        // 函数用于更新小计和总价
-        function updateSubtotalAndTotal() {
-            const quantity = parseInt(quantityInput.value, 10);
+        function updateCartTotal() {
+            // 計算小計和總價的邏輯
+            var subtotal = 0;
+            document.querySelectorAll('.cart-item').forEach(function(item) {
+                var price = parseFloat(item.querySelector('.product-price span').innerText.replace('$',
+                    ''));
+                var quantity = parseInt(item.querySelector('.input-text.qty').value);
 
-            // 计算附加选项的额外费用
-            let extraCost = 0;
-            extraInputs.forEach((extraInput) => {
-                if (extraInput.checked) {
-                    extraCost += parseFloat(extraInput.dataset.extraPrice);
-                }
+                // 檢查是否有選擇選項
+                var selectedOption = item.querySelector('select[id^="add_to-select"]');
+                var optionPrice = selectedOption ? parseFloat(selectedOption.value.split('-')[1]) : 0;
+
+                // 更新小計
+                var subTotalPrice = (price + optionPrice) * quantity;
+                item.querySelector('.product-subtotal span').innerText = '$' + subTotalPrice.toFixed(2);
+                subtotal += subTotalPrice;
             });
 
-            // 计算小计和总价
-            const subtotal = (productPrice + extraCost) * quantity;
-            subtotalElement.textContent = '$' + subtotal.toFixed(2);
-
-            // 更新总价格显示
-            updateTotalPrice();
+            // 更新總價
+            document.getElementById('total-price').innerText = '$' + subtotal.toFixed(2);
+            // 新增的部分：將總價自動填入表單中，以便在後端處理
+            document.getElementById('total-price-input').value = subtotal.toFixed(2);
         }
     });
 
-    // 函数用于计算并更新总价格
-    function updateTotalPrice() {
-        let total = 0;
-        cartItems.forEach((item) => {
-            const subtotalElement = item.querySelector('.product-subtotal span');
-            const subtotal = parseFloat(subtotalElement.textContent.replace('$', ''));
-            total += subtotal;
-        });
-
-        // 更新总价格显示
-        document.getElementById('total-price').textContent = '$' + total.toFixed(2);
-    }
-
-    // 初始化时计算和显示初始总价
-    updateTotalPrice();
-
+    document.addEventListener('DOMContentLoaded', function() {
+        var form = document.getElementById('cart-form');
+        if (form) { // 确保元素存在
+            form.onsubmit = function(e) {
+                var select = document.getElementById('add_to-select');
+                if (select.value === "default-0" || select.value == null ) {
+                    e.preventDefault(); // 阻止表单提交
+                    alert('Please select an option from "Extra".'); // 提示用户
+                }
+            };
+        } else {
+            console.error('Form not found');
+        }
+    });
 </script>
-
-
-<script>
-    // 获取所有菜单项
-    var allInputs = document.querySelectorAll("input[name='spice_level[]'], input[name='extra[]']");
-    var noteTextarea = document.querySelectorAll("textarea[name='extra[]']");
-
-    // 从本地存储中获取保存的选项
-    var savedOptions = JSON.parse(localStorage.getItem("selectedOptions"));
-    var savedNotes = JSON.parse(localStorage.getItem("savedNotes"));
-
-    // 设置已保存的选项为选中状态
-    if (savedOptions) {
-        savedOptions.forEach(function (option) {
-            var input = document.querySelector("input[id='" + option + "']");
-            if (input) {
-                input.checked = true;
-            }
-        });
-    }
-    if (savedNotes) {
-        savedNotes.forEach(function (note, index) {
-            noteTextarea[index].value = note;
-        });
-    }
-    // 为每个菜单项添加更改事件处理程序
-    allInputs.forEach(function (input) {
-        input.addEventListener("change", function () {
-            // 获取所有选中的辣度选项和额外选项
-            var selectedSpiceLevels = document.querySelectorAll("input[name='spice_level[]']:checked");
-            var selectedExtras = document.querySelectorAll("input[name='extra[]']:checked");
-
-            // 创建一个数组来保存选项的值
-            var selectedOptions = [];
-
-            // 将选中的辣度选项添加到数组中
-            selectedSpiceLevels.forEach(function (spiceLevel) {
-                selectedOptions.push(spiceLevel.id);
-            });
-
-            // 将选中的额外选项添加到数组中
-            selectedExtras.forEach(function (extra) {
-                selectedOptions.push(extra.id);
-            });
-
-            // 将选项数组转换为JSON字符串并保存在本地存储中
-            localStorage.setItem("selectedOptions", JSON.stringify(selectedOptions));
-
-        });
-    });
-
-    // 为每个文本区域添加更改事件处理程序
-    noteTextarea.forEach(function (textarea) {
-        textarea.addEventListener("input", function () {
-            // 获取所有文本区域的内容
-            var notes = [];
-            noteTextarea.forEach(function (note) {
-                notes.push(note.value);
-            });
-
-            // 将文本区域内容数组转换为JSON字符串并保存在本地存储中
-            localStorage.setItem("savedNotes", JSON.stringify(notes));
-        });
-    });
-    window.addEventListener('load', function() {
-        updateTotalPrice();
-
-        // 為表單輸入添加事件監聽器
-        const spiceLevelInputs = document.getElementsByName("spice_level[]");
-        const extraInputs = document.getElementsByName("extra[]");
-
-        spiceLevelInputs.forEach((input) => {
-            input.addEventListener("change", updateTotalPrice.bind(input));
-        });
-
-        extraInputs.forEach((input) => {
-            input.addEventListener("change", updateTotalPrice.bind(input));
-        });
-    });
-
-
-
-</script>
-

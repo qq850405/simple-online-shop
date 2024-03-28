@@ -1,0 +1,151 @@
+                             @if ($c->add_to == '1')
+                                    <tr>
+                                        <div class="form-group">
+
+                                            <td><label for="spice_level">Spice Level:</label></td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="spice_level[]"
+                                                        id="spice-no-{{ $c->product_id }}" value="no-spicy" checked>
+                                                    <label class="form-check-label" for="spice-no">
+                                                        No spicy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="spice_level[]"
+                                                        id="spice-mild-{{ $c->product_id }}" value="mild">
+                                                    <label class="form-check-label"
+                                                        for="spice-mild-{{ $c->product_id }}">
+                                                        Mild
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="spice_level[]"
+                                                        id="spice-medium-{{ $c->product_id }}" value="medium-spicy">
+                                                    <label class="form-check-label"
+                                                        for="spice-medium-{{ $c->product_id }}">
+                                                        Medium spicy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="spice_level[]"
+                                                        id="spice-spicy-{{ $c->product_id }}" value="spicy">
+                                                    <label class="form-check-label"
+                                                        for="spice-spicy-{{ $c->product_id }}">
+                                                        Spicy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="radio" name="spice_level[]"
+                                                        id="spice-hell-{{ $c->product_id }}" value="hell-spicy">
+                                                    <label class="form-check-label"
+                                                        for="spice-hell-{{ $c->product_id }}">
+                                                        Hell spicy
+                                                    </label>
+                                                </div>
+                                            </td>
+                                        </div>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <label for="extra">choose: </label>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="pork-{{ $c->product_id }}" value="pork" required>
+                                                <label class="form-check-label" for="pork-{{ $c->product_id }}">
+                                                    Pork
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="beef-{{ $c->product_id }}" value="beef" data-price="2"
+                                                    required>
+                                                <label class="form-check-label" for="beef-{{ $c->product_id }}">
+                                                    Beef (+$2)
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="shrimp-{{ $c->product_id }}" value="shrimp" data-price="3"
+                                                    required>
+                                                <label class="form-check-label" for="shrimp-{{ $c->product_id }}">
+                                                    Shrimp (+3)
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="seafood-{{ $c->product_id }}" value="seafood" data-price="5"
+                                                    required>
+                                                <label class="form-check-label" for="seafood-{{ $c->product_id }}">
+                                                    Seafood (+5)
+                                                </label>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="tofu-{{ $c->product_id }}" value="tofu" data-price="0"
+                                                    required>
+                                                <label class="form-check-label" for="tofu-{{ $c->product_id }}">
+                                                    Tofu
+                                                </label>
+                                            </div>
+                                        </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="vaggies-{{ $c->product_id }}" value="veggies" data-price="0"
+                                                    required>
+                                                <label class="form-check-label" for="vaggies-{{ $c->product_id }}">
+                                                    Veggies
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="extra[]"
+                                                    id="chicken-{{ $c->product_id }}" value="chicken" data-price="0"
+                                                    required>
+                                                <label class="form-check-label" for="chicken-{{ $c->product_id }}">
+                                                    Chicken
+                                                </label>
+                                            </div>
+                                        </td>
+
+                                        <td>
+                                        </td>
+
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                @else
+                                    <tr>
+
+                                        <td colspan="4">Note:
+                                            <textarea type="text" name="extra[]" id="note-{{ $c->product_id }}" rows="2" cols="25"></textarea>
+                                        </td>
+                                        <td><input type="hidden" name="spice_level[]" value=""></td>
+                                        <td></td>
+                                    </tr>
+                                @endif

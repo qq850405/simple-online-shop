@@ -31,7 +31,7 @@ class BuyerController extends Controller
             'product_id' => ['required', 'array'],
             'quantity' => ['required', 'array'],
             'extra' => ['required', 'array'],
-            'spice_level' => ['required', 'array'],
+            'add_to' => ['required', 'array'],
         ]);
 
         $user = Auth::user();
@@ -39,6 +39,7 @@ class BuyerController extends Controller
         $detail = [];
         $detail['total'] = 0;
         $detail['tax'] = 0;
+        $detail['subtotal'] = 0;
         $cart = new Cart();
         $cart->getBuyerCart();
         for ($i = 0; $i < count($data['product_id']); $i++) {
@@ -50,30 +51,31 @@ class BuyerController extends Controller
             $detail[$i]['quantity'] = $data['quantity'][$i];
             $detail[$i]['subtotal'] = $product->price * $data['quantity'][$i];
 
-            $detail[$i]['extra'] = $data['extra'][$i];
-            if($detail[$i]['extra']  == 'beef'){
+            $detail[$i]['extra'] = isset($data['extra'][$i]) ? $data['extra'][$i] : '';
+            if ($detail[$i]['extra']  == 'beef') {
                 $detail[$i]['subtotal'] += 2;
                 $detail[$i]['extra'] = 'beef (+2)';
             }
-            if($detail[$i]['extra']  == 'shrimp'){
+            if ($detail[$i]['extra']  == 'shrimp') {
                 $detail[$i]['subtotal'] += 3;
                 $detail[$i]['extra'] = 'shrimp (+3)';
             }
-            if($detail[$i]['extra']  == 'seafood'){
+            if ($detail[$i]['extra']  == 'seafood') {
                 $detail[$i]['subtotal'] += 5;
                 $detail[$i]['extra'] = 'seafood (+5)';
             }
 
-            $detail[$i]['spice_level'] = $data['spice_level'][$i];
+            $detail[$i]['add_to'] = isset($data['add_to'][$i]) ? $data['add_to'][$i] : '';
 
             $detail['total'] += $detail[$i]['subtotal'];
+            $detail['subtotal'] += $detail[$i]['subtotal'];
             if ($product->id != 0) {
                 $detail['tax'] += $detail[$i]['subtotal'] * 0.1;
             }
         }
 
         $detail['total'] += $detail['tax'];
-        return view('payment', compact('detail','user'));
+        return view('payment', compact('detail', 'user'));
     }
 
     public function buyOrder(Request $request)
@@ -91,8 +93,8 @@ class BuyerController extends Controller
                 'state' => ['required', 'string'],
                 'country' => ['required', 'string'],
                 'extra' => ['array'],
-                'spice_level' => ['array'],
-                'comment' => ['string' , 'nullable'],
+                'add_to' => ['array'],
+                'comment' => ['string', 'nullable'],
 
             ]);
         } catch (Exception $e) {
@@ -126,18 +128,24 @@ class BuyerController extends Controller
                 $op->order_id = $order->id;
                 $op->product_id = $cart->product_id;
                 $op->quantity = $cart->quantity;
-                $op->add_to = $data['extra'][$index];
-                if(isset($data['spice_level'][$index])) {
-                    $op->add_to .= " and " . $data['spice_level'][$index];
+                if (isset($data['extra'][$index])) {
+                    $op->extra = $data['extra'][$index];
+                }
+                if (isset($data['add_to'][$index])) {
+                    $op->add_to = $data['add_to'][$index];
                 }
                 $op->save();
 
                 $product->deductInventory($cart->product_id, $cart->quantity);
                 $name = $product->getProductById($cart->product_id)->name;
 
-                if(isset($data['spice_level'][$index])) {
-                    $message .= "\n" . $name . " x " . $cart->quantity . " with " . $data['extra'][$index] . " and " . $data['spice_level'][$index];
-                }else{
+                if (isset($data['add_to'][$index]) && isset($data['extra'][$index])) {
+                    $message .= "\n" . $name . " x " . $cart->quantity . " with " . $data['extra'][$index] . " and " . $data['add_to'][$index];
+                } elseif (isset($data['add_to'][$index])) {
+                    $message .= "\n" . $name . " x " . $cart->quantity . " without extra and " . $data['add_to'][$index];
+                } elseif (isset($data['extra'][$index])) {
+                    $message .= "\n" . $name . " x " . $cart->quantity . " with " . $data['extra'][$index];
+                } else {
                     $message .= "\n" . $name . " x " . $cart->quantity;
                 }
 
@@ -187,9 +195,9 @@ class BuyerController extends Controller
         }
     }
 
-    public function orderHistory(){
+    public function orderHistory()
+    {
         $orders = Order::where('buyer_id', Auth::id())->orderBy('created_at', 'desc')->get();
         return view('history', compact('orders'));
     }
-
 }
