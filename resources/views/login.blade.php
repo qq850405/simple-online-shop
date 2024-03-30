@@ -33,9 +33,9 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="send-message text-center">
-                            <button type="submit" class="btn btn-default">login</button>
-                            <input type="button" class="btn btn-info" onclick="location.href='/register';" value="register" />
+                          <div class="send-message text-center">
+                            <input type="submit" class="btn btn-default" value="login"/>
+                            <input type="button" class="btn btn-success" onclick="location.href='/register';" value="register" />
                         </div>
                     </form>
                 </div>
@@ -43,5 +43,43 @@
         </div>
     </div>
 </div>
+<style>
+.send-message {
+    /* Center the button container */
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Add a gap between buttons */
+}
+
+.btn-custom-login,
+.btn-custom-register {
+    padding: 10px 20px; /* Add padding inside the buttons */
+    border: none; /* Remove borders */
+    border-radius: 5px; /* Add rounded corners */
+    font-size: 16px; /* Set font size */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
+}
+
+.btn-custom-login {
+    background-color: #4CAF50; /* Green background */
+    color: white; /* White text */
+}
+
+.btn-custom-register {
+    background-color: #00BCD4; /* Cyan background */
+    color: white; /* White text */
+}
+
+.btn-custom-login:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.btn-custom-register:hover {
+    background-color: #019ba5; /* Darker cyan on hover */
+}
+
+</style>
+
 <!-- Specialties Section Start -->
 

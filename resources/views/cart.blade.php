@@ -173,6 +173,7 @@
                     ''));
                 var quantity = parseInt(item.querySelector('.input-text.qty').value);
 
+                item.querySelector('.input-text.qty.text.hidden').value = quantity;
                 // 檢查是否有選擇選項
                 var selectedOption = item.querySelector('select[id^="add_to-select"]');
                 var optionPrice = selectedOption ? parseFloat(selectedOption.value.split('-')[1]) : 0;

@@ -52,19 +52,8 @@ class BuyerController extends Controller
             $detail[$i]['subtotal'] = $product->price * $data['quantity'][$i];
 
             $detail[$i]['extra'] = isset($data['extra'][$i]) ? $data['extra'][$i] : '';
-            if ($detail[$i]['extra']  == 'beef') {
-                $detail[$i]['subtotal'] += 2;
-                $detail[$i]['extra'] = 'beef (+2)';
-            }
-            if ($detail[$i]['extra']  == 'shrimp') {
-                $detail[$i]['subtotal'] += 3;
-                $detail[$i]['extra'] = 'shrimp (+3)';
-            }
-            if ($detail[$i]['extra']  == 'seafood') {
-                $detail[$i]['subtotal'] += 5;
-                $detail[$i]['extra'] = 'seafood (+5)';
-            }
-
+            $detail['subtotal'] += isset($data['extra'][$i]) ? explode("-", $data['extra'][$i])[1] : 0;
+            $detail['total'] += isset($data['extra'][$i]) ? explode("-", $data['extra'][$i])[1] : 0;
             $detail[$i]['add_to'] = isset($data['add_to'][$i]) ? $data['add_to'][$i] : '';
 
             $detail['total'] += $detail[$i]['subtotal'];
@@ -81,7 +70,6 @@ class BuyerController extends Controller
     public function buyOrder(Request $request)
     {
         try {
-            $cart = new Cart();
             $data = $request->validate([
                 'email' => ['required', 'string', 'email'],
                 'name' => ['required', 'string'],
@@ -95,11 +83,11 @@ class BuyerController extends Controller
                 'extra' => ['array'],
                 'add_to' => ['array'],
                 'comment' => ['string', 'nullable'],
-
             ]);
         } catch (Exception $e) {
-            return $e->getMessage();
+            dd($e->getMessage());
         }
+        $cart = new Cart();
 
         DB::beginTransaction();
         try {
@@ -129,10 +117,10 @@ class BuyerController extends Controller
                 $op->product_id = $cart->product_id;
                 $op->quantity = $cart->quantity;
                 if (isset($data['extra'][$index])) {
-                    $op->extra = $data['extra'][$index];
+                    $op->add_to .= $data['extra'][$index];
                 }
                 if (isset($data['add_to'][$index])) {
-                    $op->add_to = $data['add_to'][$index];
+                    $op->add_to .= ' ' . $data['add_to'][$index];
                 }
                 $op->save();
 
@@ -153,7 +141,6 @@ class BuyerController extends Controller
                 $cart->delete();
                 $index++;
             }
-
             Stripe::setApiKey(env('STRIPE_SECRET'));
             $customer = Customer::create(array(
                 "address" => [
@@ -186,11 +173,12 @@ class BuyerController extends Controller
             ]);
             Session::flash('success', 'Payment successful!');
             Cart::where('buyer_id', Auth::id())->delete();
-            DB::commit();
             Line::send($message);
+            DB::commit();
             return redirect()->route('index');
         } catch (Exception $e) {
             DB::rollBack();
+            dd($e);
             return redirect()->route('cart.show');
         }
     }
