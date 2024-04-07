@@ -5,7 +5,7 @@
 <div class="slider-container">
     <div id="rev_slider_1075_2" class="rev_slider fullscreen" style="display:none;" data-version="5.4.1">
         <ul>
-
+            {{foreach($poster as $p) }}
             <!-- SLIDE  -->
         
             <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0"
@@ -16,7 +16,7 @@
                 data-param8="" data-param9="" data-param10="" data-description="">
 
                 <!-- MAIN IMAGE -->
-                <img src="{{ asset('images/main1.png') }}" alt="" data-bgposition="center center"
+                <img src="https://admin.sampannee.com/images/{{$p->filename}}" alt="" data-bgposition="center center"
                     data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg"
                     data-no-retina>
 
@@ -38,6 +38,7 @@
                     style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">
                 </div>
             </li>
+            {{endforeach}}
         </ul>
     </div>
     <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
