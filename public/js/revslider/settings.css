@@ -1410,7 +1410,7 @@ img.tp-slider-alternative-image {
     font-weight: 600
 }
 .tparrows.tp-leftarrow:before {
-    content: '\f104';
+    content: "\f060";
 	transform: rotate(-45deg);
 	-webkit-transform: rotate(-45deg);
 	-moz-transform: rotate(-45deg);
@@ -1418,8 +1418,8 @@ img.tp-slider-alternative-image {
 	-o-transform: rotate(-45deg);
 }
 .tparrows.tp-rightarrow:before {
-    content: '\f105';
-		transform: rotate(45deg);
+    content: "\f061";
+    transform: rotate(45deg);
 	-webkit-transform: rotate(45deg);
 	-moz-transform: rotate(45deg);
 	-ms-transform: rotate(45deg);
