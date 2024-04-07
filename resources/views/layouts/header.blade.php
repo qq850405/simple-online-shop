@@ -125,12 +125,8 @@
                                 {{--                                    </ul> --}}
                                 {{--                                </li> --}}
                                 <li class="dropdown">
-                                    <a href="/shop" class="menu" role="button" aria-haspopup="true"
+                                    <a href="https://order.toasttab.com/online/sampannee-2122-p-st-nw" class="menu" role="button" aria-haspopup="true"
                                         aria-expanded="false">Online Ordering<span class="caret"></span></a>
-                                </li>
-                                <li class="dropdown">
-                                    <a href="/cart" class="cart" role="button" aria-haspopup="true"
-                                        aria-expanded="false">Cart<span class="caret"></span></a>
                                 </li>
                                 <li><a href="/contact">Contact</a>
                                 </li>
@@ -175,7 +171,7 @@
                                     {{--                                            <li><a href="blog-single-shop-item.html">Blog Single Shop Item</a></li> --}}
                                     {{--                                        </ul> --}}
                                     {{--                                    </li> --}}
-                                    <li><a href="/shop">Online Ordering</a>
+                                    <li><a href="https://order.toasttab.com/online/sampannee-2122-p-st-nw">Online Ordering</a>
                                     </li>
                                     {{--                                    <li><a href="error.html">Error</a></li> --}}
                                     <li><a href="/contact">Contact</a>
