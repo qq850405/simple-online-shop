@@ -248,6 +248,7 @@
     <div class="slider clearfix">
         <div id="rev_slider_1075_1" class="rev_slider fullscreen" style="display:none;" data-version="5.4.1">
             <ul>
+             @foreach($mainPhoto as $p)
                 <!-- SLIDE  -->
                 <li data-index="rs-3034" data-transition="fade" data-slotamount="7" data-hideafterloop="0"
                     data-hideslideonmobile="off" data-easein="default" data-easeout="default"
@@ -258,7 +259,7 @@
                     data-param10="" data-description="">
 
                     <!-- MAIN IMAGE -->
-                    <img src="{{ asset('images/main3.png') }}" alt="" data-bgposition="center center"
+                    <img src="https://admin.sampannee.com/images/{{$p->filename}}" alt="" data-bgposition="center center"
                         data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg"
                         data-no-retina>
 
@@ -281,73 +282,7 @@
                         style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">
                     </div>
                 </li>
-                <!-- SLIDE  -->
-
-                <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0"
-                    data-hideslideonmobile="off" data-easein="default" data-easeout="default"
-                    data-masterspeed="1500" data-thumb="../../assets/images/fashion_bg1-100x50.jpg" data-rotate="0"
-                    data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7"
-                    data-saveperformance="off" data-title="Intro" data-param1="" data-param2="" data-param3=""
-                    data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
-                    data-param10="" data-description="">
-
-                    <!-- MAIN IMAGE -->
-                    <img src="{{ asset('images/main1.png') }}" alt="" data-bgposition="center center"
-                        data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg"
-                        data-no-retina>
-
-                    <!-- LAYERS NR. 2 -->
-                    <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" id="slide-5-layer-4" data-x="954"
-                        data-y="400" data-width="['40']" data-height="['1']" data-type="shape"
-                        data-responsive_offset="on"
-                        data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                        data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                        data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 8;background-color:rgba(255, 255, 255, 0.5);"> </div>
-
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption   tp-resizeme" id="slide-3034-layer-22" data-x="1053" data-y="300"
-                        data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on"
-                        data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                        data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                        data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">
-                    </div>
-                </li>
-                <!-- SLIDE  -->
-                <li data-index="rs-3035" data-transition="fade" data-slotamount="7" data-hideafterloop="0"
-                    data-hideslideonmobile="off" data-easein="default" data-easeout="default"
-                    data-masterspeed="1500" data-thumb="../../assets/images/fashion_bg1-100x50.jpg" data-rotate="0"
-                    data-fstransition="fade" data-fsmasterspeed="1500" data-fsslotamount="7"
-                    data-saveperformance="off" data-title="Intro" data-param1="" data-param2="" data-param3=""
-                    data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
-                    data-param10="" data-description="">
-
-                    <!-- MAIN IMAGE -->
-                    <img src="{{ asset('images/main2.png') }}" alt="" data-bgposition="center center"
-                        data-bgfit="cover" data-bgrepeat="no-repeat" data-bgparallax="6" class="rev-slidebg"
-                        data-no-retina>
-                    <!-- LAYERS 1 -->
-
-                    <!-- LAYERS NR. 2 -->
-                    <div class="tp-caption tp-shape tp-shapewrapper  tp-resizeme" id="slide-5-layer-4" data-x="954"
-                        data-y="309" data-width="['40']" data-height="['1']" data-type="shape"
-                        data-responsive_offset="on"
-                        data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                        data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                        data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 8;background-color:rgba(255, 255, 255, 0.5);"> </div>
-
-                    <!-- LAYER NR. 3 -->
-                    <div class="tp-caption   tp-resizeme" id="slide-3034-layer-22" data-x="1053" data-y="300"
-                        data-width="['auto']" data-height="['auto']" data-type="text" data-responsive_offset="on"
-                        data-frames='[{"delay":10,"speed":300,"frame":"0","from":"opacity:0;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"}]'
-                        data-textAlign="['inherit','inherit','inherit','inherit']" data-paddingtop="[0,0,0,0]"
-                        data-paddingright="[0,0,0,0]" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                        style="z-index: 7; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing: 6px;font-family:Poppins;text-transform:uppercase;">
-                    </div>
-                </li>
-                <!-- SLIDE  -->
+            @endforeach
             </ul>
         </div>
         <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>

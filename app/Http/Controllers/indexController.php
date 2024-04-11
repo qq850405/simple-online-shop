@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\mainPhoto;
 use App\Models\Poster;
 use App\Models\Product;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
@@ -19,8 +20,9 @@ class indexController extends BaseController
         $menu = $products->getProduct();
         $products = new Poster();
         $poster = $products->get();
-
-        return view('index', compact('category', 'menu', 'poster'));
+        $mainPhotos = new mainPhoto();
+        $mainPhoto = $mainPhotos->get();
+        return view('index', compact('category', 'menu', 'poster', 'mainPhoto'));
     }
     public function getCSRFToken(): \Illuminate\Http\JsonResponse
     {
