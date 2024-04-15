@@ -5,12 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class MainPhoto extends Model
+class marquee extends Model
 {
     use HasFactory;
-
-    protected $table = 'main_photos';
-    protected $fillable = [
-        'image',
-    ];
 }

@@ -83,6 +83,23 @@
             /* 根据宽度等比例缩放高度 */
         }
     </style>
+
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.5;
+            background-color: #FFF;
+            font-size: 16px;
+            color: #2a2a2a;
+        }
+
+        marquee {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, .1);
+            border: 1px solid rgba(0, 0, 0, .15);
+            background-color: #ffffff;
+            padding: 10px;
+        }
+    </style>
 </head>
 <!-- Header Start -->
 

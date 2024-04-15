@@ -1,4 +1,8 @@
 @include('layouts.header')
+
+    <marquee width="100%" direction="left" behavior="scroll" scrollamount="4">
+    {{ $marquee[0]->text }}
+    </marquee>
 <div class="section-title" style="text-align: center; font-weight: bold; margin-top: 20px;">
     <h2>News</h2>
 </div>
