@@ -11,6 +11,8 @@
                         <ul>
                             <li><a href="/">Home</a></li>
                             <li><a href="/menu">menu</a></li>
+                            <li><a href="https://www.yelp.com/rez/sampannee-washington?utm_campaign=reservations_redirect&utm_source=mobile_web">Reserve Now</a></li>
+                            <li><a href="https://www.ubereats.com/store/sampannee/0etQ1PgoWpK9Hio3LBx57w">Uber Eats</a></li>
                             {{--                            <li><a href="reservation-form-and-content.html">Reservation</a></li>--}}
                             {{--                            <li><a href="blog-main.html">blog</a></li>--}}
 {{--                            <li><a href="/shop">Shop</a></li>--}}

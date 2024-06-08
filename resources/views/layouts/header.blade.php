@@ -145,6 +145,14 @@
                                     <a href="https://order.toasttab.com/online/sampannee-2122-p-st-nw" class="menu" role="button" aria-haspopup="true"
                                         aria-expanded="false">Online Ordering<span class="caret"></span></a>
                                 </li>
+                                <li class="dropdown">
+                                    <a href="https://www.ubereats.com/store/sampannee/0etQ1PgoWpK9Hio3LBx57w"" class="menu" role="button" aria-haspopup="true"
+                                        aria-expanded="false">Uber Eats<span class="caret"></span></a>
+                                </li>
+                                <li class="dropdown">
+                                    <a href="https://www.yelp.com/rez/sampannee-washington?utm_campaign=reservations_redirect&utm_source=mobile_web" class="menu" role="button" aria-haspopup="true"
+                                        aria-expanded="false">Reserve Now<span class="caret"></span></a>
+                                </li>
                                 <li><a href="/contact">Contact</a>
                                 </li>
                                 <li><a href="/order_history">Order History</a>
@@ -189,6 +197,10 @@
                                     {{--                                        </ul> --}}
                                     {{--                                    </li> --}}
                                     <li><a href="https://order.toasttab.com/online/sampannee-2122-p-st-nw">Online Ordering</a>
+                                    </li>
+                                    <li><a href="https://www.ubereats.com/store/sampannee/0etQ1PgoWpK9Hio3LBx57w">Uber Eats</a>
+                                    </li>
+                                    <li><a href="https://www.yelp.com/rez/sampannee-washington?utm_campaign=reservations_redirect&utm_source=mobile_web">Reserve Now</a>
                                     </li>
                                     {{--                                    <li><a href="error.html">Error</a></li> --}}
                                     <li><a href="/contact">Contact</a>
